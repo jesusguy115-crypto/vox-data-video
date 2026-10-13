@@ -1,0 +1,3065 @@
+{
+  "research_date": "2026-10-13",
+  "source_page": "https://hanabi.cn/h2/dataVideo",
+  "coverage": {
+    "styles": 125,
+    "editor_pages_reviewed": 125,
+    "preview_thumbnails_reviewed": 125,
+    "detailed_configuration_checks": 22,
+    "families": 39,
+    "missing_data_guides": 5
+  },
+  "scope_note": "当前全部列表的样式，不声称涵盖未列出的页面或未来新增样式；不是125种渲染器已全部编写的承诺。",
+  "family_guidance_note": "用途、避免条件和Vox动画为研究后的制作判断；网站列数与控件映射单独标注。",
+  "families": {
+    "comparison": {
+      "meaning": "类别间大小或单期排序",
+      "semantic_input": "类别、数值、单位",
+      "avoid": "完整占比组成不默认用排名图；三角/象形是外观变体，不能按图形面积误读高度",
+      "vox_motion": "逐条贴入、固定零基线、重点数字纸卡",
+      "styles": [
+        "动态柱状图",
+        "棒棒糖图",
+        "动态排名图",
+        "基础柱状图",
+        "三角柱形图",
+        "象形柱图",
+        "基础条形图",
+        "象形条形图",
+        "迷你柱状图"
+      ]
+    },
+    "grouped_comparison": {
+      "meaning": "同类别内比较多个系列",
+      "semantic_input": "类别、系列、数值",
+      "avoid": "系列太多时分面；各面板尺度须可比较",
+      "vox_motion": "按系列贴入，最后圈出组内差异",
+      "styles": [
+        "分组柱状图",
+        "分组条形图",
+        "分组条形图（新）",
+        "分面条形图"
+      ]
+    },
+    "stacked_composition": {
+      "meaning": "多个整体的构成与总量",
+      "semantic_input": "类别/组、可相加的组成值、共同分母",
+      "avoid": "百分比与绝对堆叠不能混用；不同单位不能相加",
+      "vox_motion": "整组建立后逐块展开，标总量或份额",
+      "styles": [
+        "堆叠条形图",
+        "堆叠柱状图",
+        "百分比堆叠柱状图",
+        "百分比堆叠条形图",
+        "分组堆叠柱状图"
+      ]
+    },
+    "dual_axis_combo": {
+      "meaning": "同对象的两指标叠加",
+      "semantic_input": "类别/时间、柱或线系列、左右轴单位",
+      "avoid": "轴缩放不能制造相关性；保留用户指定柱线叠加",
+      "vox_motion": "柱先展开、线后绘出、贴短解释标签",
+      "styles": [
+        "动态双轴折线图",
+        "折线柱状图",
+        "分组折线柱状图",
+        "堆叠折线柱状图"
+      ]
+    },
+    "line_trend": {
+      "meaning": "有序连续趋势与节点标注",
+      "semantic_input": "有序横轴、数值系列、可选节点文字",
+      "avoid": "纯类别不自动连线；真实缺失和插值须区分",
+      "vox_motion": "纸页固定、线按顺序画出、节点注释贴入",
+      "styles": [
+        "动态折线图",
+        "带标签折线图",
+        "折线图（带标注)",
+        "折线图",
+        "迷你折线图",
+        "阶梯折线图"
+      ]
+    },
+    "ranking_over_time": {
+      "meaning": "多对象的时序数值/排名变化",
+      "semantic_input": "对象、真实时间、多期值或名次",
+      "avoid": "两列单期数据不构造假时间；名次轴方向及并列名次需清楚",
+      "vox_motion": "稳定身份标签、按真实时间运动，关键时点停留",
+      "styles": [
+        "动态条形图",
+        "动态折线排名图",
+        "动态对比条形图"
+      ]
+    },
+    "heatmap": {
+      "meaning": "二维分类矩阵中的强度",
+      "semantic_input": "X维、Y维、格值、色阶单位",
+      "avoid": "缺失不是零；不能只靠颜色不给图例",
+      "vox_motion": "逐行格片揭开、重点格圈线",
+      "styles": [
+        "笛卡尔热力图"
+      ]
+    },
+    "tree_structure": {
+      "meaning": "父子关系的结构",
+      "semantic_input": "层级路径、可选叶值",
+      "avoid": "节点位置不代表量；网络不是树",
+      "vox_motion": "父级先贴入、分支展开、聚焦一个子树",
+      "styles": [
+        "水平树状图",
+        "径向树状图",
+        "垂直树状图"
+      ]
+    },
+    "parallel_coordinates": {
+      "meaning": "同对象多指标关系",
+      "semantic_input": "对象/组、多个数值维度",
+      "avoid": "不同尺度需轴标或标准化；交叉太多会难读",
+      "vox_motion": "先建轴，再画重点对象，其他线弱化",
+      "styles": [
+        "平行坐标系"
+      ]
+    },
+    "regression": {
+      "meaning": "两个数值的拟合关系",
+      "semantic_input": "成对X/Y样本、明确拟合方式",
+      "avoid": "拟合不代表因果；不凭少量点给可靠预测",
+      "vox_motion": "先散点、后拟合线、注明计算与范围",
+      "styles": [
+        "线性回归图"
+      ]
+    },
+    "diverging_comparison": {
+      "meaning": "基准两侧或两群体对比",
+      "semantic_input": "共同类别、正负系列或左右群体",
+      "avoid": "左边视觉方向不等于数据为负；人口年龄层须真实",
+      "vox_motion": "共同基线固定，两边展开，圈差异",
+      "styles": [
+        "发散堆叠条形图",
+        "发散堆叠柱形图",
+        "双向柱状图",
+        "蝴蝶图",
+        "人口金字塔"
+      ]
+    },
+    "candlestick": {
+      "meaning": "每期的开高低收",
+      "semantic_input": "时间、开盘、收盘、最低、最高",
+      "avoid": "普通单值趋势不能伪造OHLC；验证最低/最高覆盖开收",
+      "vox_motion": "时间顺序逐根出现，贴关键波动说明",
+      "styles": [
+        "K线图"
+      ]
+    },
+    "sets": {
+      "meaning": "集合交集的规模",
+      "semantic_input": "集合名称组合、交集数",
+      "avoid": "互斥份额不是交集；交集计数口径需一致",
+      "vox_motion": "集合纸片建立后揭示交叠值",
+      "styles": [
+        "韦恩图"
+      ]
+    },
+    "geographic_distribution": {
+      "meaning": "地区空间差异",
+      "semantic_input": "同层级地区、数值、可选多期时间",
+      "avoid": "绝对人口/总量宜气泡，强度/率宜分级色；行政面积不是值",
+      "vox_motion": "地图纸页固定、地区逐项着色或气泡出现",
+      "styles": [
+        "静态地图热力图（分省）",
+        "静态地图气泡图（分省）",
+        "动态地图热力图",
+        "动态地图气泡图",
+        "静态地图热力图",
+        "静态地图气泡图",
+        "动态地图热力图（分省）",
+        "动态地图气泡图（分省）"
+      ]
+    },
+    "event_timeline": {
+      "meaning": "事件按时间与文字发展",
+      "semantic_input": "时间/日期、标题、事件、可选左右位置",
+      "avoid": "不是数值趋势；不要编造事件时间",
+      "vox_motion": "轴线展开、事件纸卡依次贴入",
+      "styles": [
+        "动态时间轴（新）",
+        "动态时间轴图",
+        "时间轴"
+      ]
+    },
+    "progress_comparison": {
+      "meaning": "独立指标的达成/进度",
+      "semantic_input": "对象、实际比例或目标/实际/区间",
+      "avoid": "各环分母独立，不把同整体组成误画成独立目标达成；须明确100%含义",
+      "vox_motion": "轮廓固定后弧/水位/实际条展开，贴目标说明",
+      "styles": [
+        "得分环",
+        "对比环形图",
+        "水波图",
+        "子弹图",
+        "子弹图（竖）",
+        "对比环形图(半环)",
+        "自定义水波图"
+      ]
+    },
+    "boxplot": {
+      "meaning": "多组样本的分布",
+      "semantic_input": "类别和每组多个原始样本值",
+      "avoid": "单个均值不能生成四分位数；说明异常值与须线规则",
+      "vox_motion": "箱体先建立，再中位数/须线，圈分布差异",
+      "styles": [
+        "箱型图"
+      ]
+    },
+    "hierarchical_radial": {
+      "meaning": "层级化的份额结构",
+      "semantic_input": "层级路径、末级非负值",
+      "avoid": "父子汇总不得重复计数；没有层级不加层级",
+      "vox_motion": "由父到子展开，聚焦一条层级路径",
+      "styles": [
+        "动态玫瑰图（环）",
+        "动态玫瑰图",
+        "多级饼图",
+        "多级环图",
+        "交互旭日图",
+        "旭日图",
+        "玫瑰图",
+        "玫瑰图(环)"
+      ]
+    },
+    "rose": {
+      "meaning": "类别在径向上编码大小的外观变体",
+      "semantic_input": "类别、非负值、明确半径/面积编码",
+      "avoid": "普通组成优先饼图；不同半径同时改变面积，不用于细差精比",
+      "vox_motion": "扇片顺序展开后稳住尺度，直接标数值",
+      "styles": [
+        "动态基础玫瑰图（环）",
+        "动态基础玫瑰图",
+        "动态基础玫瑰图（半环）",
+        "动态基础玫瑰图（半环竖）",
+        "动态扇形玫瑰图",
+        "基础玫瑰图(环)",
+        "基础玫瑰图",
+        "扇形玫瑰图",
+        "基础玫瑰图(半环)",
+        "基础玫瑰图(半环竖)"
+      ]
+    },
+    "waterfall": {
+      "meaning": "阶段数值变化或净贡献",
+      "semantic_input": "阶段顺序、level/delta口径、起终值",
+      "avoid": "网站输入阶段实际值计算差，不能当成增减量累加",
+      "vox_motion": "逐步连接阶段，再贴终值及净变化",
+      "styles": [
+        "动态瀑布图",
+        "瀑布图"
+      ]
+    },
+    "pie_donut": {
+      "meaning": "一个整体的少量互斥类别份额",
+      "semantic_input": "类别、非负值、完整共同分母",
+      "avoid": "重叠类别/独立百分比/负值不可闭合；不规则外观影响精度",
+      "vox_motion": "按角度揭开扇片、贴外侧类别值、重点份额纸卡",
+      "styles": [
+        "基础饼图",
+        "不规则饼图",
+        "环图",
+        "半圆环图",
+        "扇形饼图"
+      ]
+    },
+    "funnel": {
+      "meaning": "顺序阶段的留存/转化",
+      "semantic_input": "有顺序阶段、各阶段量、共同人群口径",
+      "avoid": "普通排名不能因为递减就称漏斗；需实际转化过程",
+      "vox_motion": "逐层贴入并标阶段率",
+      "styles": [
+        "漏斗图"
+      ]
+    },
+    "circle_packing": {
+      "meaning": "类别大小的面积展示",
+      "semantic_input": "类别、非负值、可选真实时间",
+      "avoid": "半径须按面积换算；空隙不代表未分配份额",
+      "vox_motion": "圆纸片按面积出现，重点对象加标签",
+      "styles": [
+        "动态圆堆图",
+        "圆堆图"
+      ]
+    },
+    "treemap": {
+      "meaning": "很多类别或层级的面积组成",
+      "semantic_input": "类别/层级路径、非负大小值",
+      "avoid": "比较小差异不如条；面积与值成比例，父子别重复",
+      "vox_motion": "矩形/多边形块贴入，重点块注释",
+      "styles": [
+        "动态树图",
+        "树图",
+        "双层树图",
+        "沃罗诺伊树图",
+        "沃罗诺伊图"
+      ]
+    },
+    "area_trend": {
+      "meaning": "量随时间累积、组成或范围",
+      "semantic_input": "有序时间、可加系列或下上界",
+      "avoid": "堆叠与区间语义不同；河流图曲线不适合精确读取单项",
+      "vox_motion": "时间方向揭开填充，重点时间贴注释",
+      "styles": [
+        "堆叠面积图",
+        "基础面积图",
+        "河流图",
+        "百分比堆叠面积图",
+        "区间面积图"
+      ]
+    },
+    "radar": {
+      "meaning": "同对象多维轮廓",
+      "semantic_input": "指标、对象系列、同量纲或明确归一化",
+      "avoid": "任意混单位会误导；多边形面积不是总体能力",
+      "vox_motion": "轴稳定，逐对象轮廓展开，重点维度标注",
+      "styles": [
+        "雷达图",
+        "柱形雷达图",
+        "星型雷达图"
+      ]
+    },
+    "wordcloud": {
+      "meaning": "词语权重的概览",
+      "semantic_input": "词语、频次/权重",
+      "avoid": "字体尺寸不是精确比例；普通数字类别优先其他图",
+      "vox_motion": "词片有序贴入，突出核实高频词",
+      "styles": [
+        "词云"
+      ]
+    },
+    "range": {
+      "meaning": "类别的上下界",
+      "semantic_input": "类别、起/下界、终/上界",
+      "avoid": "不是两时点变化，须先区分区间与配对值",
+      "vox_motion": "范围纸条展开，端点稳定标注",
+      "styles": [
+        "区间条形图",
+        "区间柱状图"
+      ]
+    },
+    "paired_change": {
+      "meaning": "同对象的两个端点变化",
+      "semantic_input": "类别、前值、后值、时点/条件",
+      "avoid": "需要配对同对象；不要把不确定性范围当前后变化",
+      "vox_motion": "前点建立、后点出现、连接两点",
+      "styles": [
+        "哑铃图",
+        "哑铃图（竖）"
+      ]
+    },
+    "polar_line": {
+      "meaning": "有周期或极轴语义的系列",
+      "semantic_input": "极轴/周期类别、径向值",
+      "avoid": "任意类别闭合线会制造循环；不同维度需同尺度",
+      "vox_motion": "先轴、后径向线、贴周期重点",
+      "styles": [
+        "动态极坐标折线图",
+        "极坐标折线图"
+      ]
+    },
+    "polar_bar": {
+      "meaning": "周期/径向类别大小",
+      "semantic_input": "极轴类别、非负径向值",
+      "avoid": "不是普通饼图份额；径向长度与面积不要混淆",
+      "vox_motion": "由内向外展开，直接标值",
+      "styles": [
+        "极坐标柱状图"
+      ]
+    },
+    "radial_comparison": {
+      "meaning": "同心弧条类别或堆叠比较",
+      "semantic_input": "类别、值、共同角度尺度、可选组成",
+      "avoid": "外圈弧长天生更长；不用视觉长度代替数值",
+      "vox_motion": "沿弧路径展开、标数值与尺度",
+      "styles": [
+        "基础玉珏图",
+        "玉珏图(线)",
+        "堆叠玉珏图"
+      ]
+    },
+    "bubble": {
+      "meaning": "X/Y关联加第三量，或随时间移动",
+      "semantic_input": "对象、X、Y、大小、可选颜色/真实时间",
+      "avoid": "数量大小映射面积；显式半径与面积字段要区分",
+      "vox_motion": "先坐标、后圆纸片，多期才沿真实时间移动",
+      "styles": [
+        "动态气泡图",
+        "气泡图"
+      ]
+    },
+    "scatter": {
+      "meaning": "两个数值的关联",
+      "semantic_input": "成对X/Y、可选对象名",
+      "avoid": "类别占比表不是散点；不能推断因果",
+      "vox_motion": "坐标固定，点出现，圈重点区间",
+      "styles": [
+        "基础散点图"
+      ]
+    },
+    "network": {
+      "meaning": "节点与联系强弱",
+      "semantic_input": "源、目标、权重、可选边描述/节点组",
+      "avoid": "网络不自动代表流程或层级；力布局运动不是数据变化",
+      "vox_motion": "节点先建立，边后画，随后冻结布局",
+      "styles": [
+        "关系力导向图",
+        "分组力导向图"
+      ]
+    },
+    "histogram": {
+      "meaning": "一个数值变量的样本分布",
+      "semantic_input": "原始样本、分箱规则",
+      "avoid": "不要把类别频数当原样本重新分箱",
+      "vox_motion": "分箱尺度固定，箱柱展开，贴密集区说明",
+      "styles": [
+        "直方图"
+      ]
+    },
+    "geographic_flow": {
+      "meaning": "地点间的时序流量",
+      "semantic_input": "时间、源地区、目标地区、非负流量",
+      "avoid": "线条粗细是流量，不是距离；须真实地点匹配",
+      "vox_motion": "地图固定，路径画出，流量变化只用真实时间",
+      "styles": [
+        "动态地图流向图"
+      ]
+    },
+    "gantt": {
+      "meaning": "任务/活动起止与并行",
+      "semantic_input": "任务名、开始时间、结束时间",
+      "avoid": "时间范围不能当上下数值范围；验证结束不早于开始",
+      "vox_motion": "日期轴固定，任务纸条展开",
+      "styles": [
+        "甘特图"
+      ]
+    },
+    "flow": {
+      "meaning": "节点之间的流量和连接",
+      "semantic_input": "源、目的、非负权重",
+      "avoid": "桑基用于流量，弦用于互联结构；检查总入出及重复边",
+      "vox_motion": "先节点/外环，再流带，重点流向纸卡",
+      "styles": [
+        "桑基图",
+        "弦图"
+      ]
+    }
+  },
+  "charts": [
+    {
+      "id": 1,
+      "name": "动态双轴折线图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_line_dou_chart",
+      "family": "dual_axis_combo",
+      "input_summary": "A横轴；B左轴；C右轴，三列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "双轴折线图"
+    },
+    {
+      "id": 2,
+      "name": "动态柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_column_chart",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "数据排序",
+        "图形样式",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "柱状图"
+    },
+    {
+      "id": 3,
+      "name": "棒棒糖图",
+      "url": "https://hanabi.cn/h2/visualisation/lollipop_chart",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "棒棒糖图"
+    },
+    {
+      "id": 4,
+      "name": "动态条形图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_bar_chart",
+      "family": "ranking_over_time",
+      "input_summary": "A颜色组、B对象；C起列头为时间，单元格为非负值。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "数据排序",
+        "图形样式",
+        "时间标注",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "条形图"
+    },
+    {
+      "id": 5,
+      "name": "动态排名图",
+      "url": "https://hanabi.cn/h2/visualisation/barchartrace",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "数据排序",
+        "图形样式",
+        "数值标注",
+        "文字标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "排名图"
+    },
+    {
+      "id": 6,
+      "name": "动态折线图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_line_chart",
+      "family": "line_trend",
+      "input_summary": "有序横轴、数值系列、可选节点文字",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "折线图"
+    },
+    {
+      "id": 7,
+      "name": "笛卡尔热力图",
+      "url": "https://hanabi.cn/h2/visualisation/heatmap_cartesian",
+      "family": "heatmap",
+      "input_summary": "官网数据指引为空；以下是按图形结构归纳的自绘字段：X维、Y维、格值、色阶单位",
+      "input_status": "site_guide_missing",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图表样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "笛卡尔热力图"
+    },
+    {
+      "id": 8,
+      "name": "带标签折线图",
+      "url": "https://hanabi.cn/h2/visualisation/labeled_line",
+      "family": "line_trend",
+      "input_summary": "官网数据指引为空；以下是按图形结构归纳的自绘字段：有序横轴、数值系列、可选节点文字",
+      "input_status": "site_guide_missing",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "标签标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "淡入",
+        "折线渐入",
+        "向两边延伸"
+      ],
+      "visual_variant": "带标签折线图"
+    },
+    {
+      "id": 9,
+      "name": "水平树状图",
+      "url": "https://hanabi.cn/h2/visualisation/horizontal_tree",
+      "family": "tree_structure",
+      "input_summary": "前列层级名称，末列叶值，层数不固定。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "数值标注",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "水平树状图"
+    },
+    {
+      "id": 10,
+      "name": "平行坐标系",
+      "url": "https://hanabi.cn/h2/visualisation/parallel_chart",
+      "family": "parallel_coordinates",
+      "input_summary": "A组/图例；B起数值轴，每行一个对象，网站建议至少四列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "坐标轴",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "平行坐标系"
+    },
+    {
+      "id": 11,
+      "name": "径向树状图",
+      "url": "https://hanabi.cn/h2/visualisation/radial_tree",
+      "family": "tree_structure",
+      "input_summary": "前列层级名称，末列叶值。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "数值标注",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "径向树状图"
+    },
+    {
+      "id": 12,
+      "name": "线性回归图",
+      "url": "https://hanabi.cn/h2/visualisation/scatter_linear_regression",
+      "family": "regression",
+      "input_summary": "A为X，B为Y。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "标注",
+        "坐标轴",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "线性回归图"
+    },
+    {
+      "id": 13,
+      "name": "垂直树状图",
+      "url": "https://hanabi.cn/h2/visualisation/vertical_tree",
+      "family": "tree_structure",
+      "input_summary": "前列层级名称，末列叶值。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "数值标注",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "垂直树状图"
+    },
+    {
+      "id": 14,
+      "name": "发散堆叠条形图",
+      "url": "https://hanabi.cn/h2/visualisation/diverging_stacked_bar",
+      "family": "diverging_comparison",
+      "input_summary": "共同类别、正负系列或左右群体",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "发散堆叠条形图"
+    },
+    {
+      "id": 15,
+      "name": "发散堆叠柱形图",
+      "url": "https://hanabi.cn/h2/visualisation/diverging_stacked_column",
+      "family": "diverging_comparison",
+      "input_summary": "共同类别、正负系列或左右群体",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "发散堆叠柱形图"
+    },
+    {
+      "id": 16,
+      "name": "K线图",
+      "url": "https://hanabi.cn/h2/visualisation/k_line_chart",
+      "family": "candlestick",
+      "input_summary": "日期、开盘、收盘、最低、最高五列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "坐标轴",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "K线图"
+    },
+    {
+      "id": 17,
+      "name": "韦恩图",
+      "url": "https://hanabi.cn/h2/visualisation/venn_chart",
+      "family": "sets",
+      "input_summary": "前列集合名称组合，末列交集值。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "图例",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "韦恩图"
+    },
+    {
+      "id": 18,
+      "name": "静态地图热力图（分省）",
+      "url": "https://hanabi.cn/h2/visualisation/static_choropleth_map_provincial",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地区切换",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "静态地图热力图（分省）"
+    },
+    {
+      "id": 19,
+      "name": "静态地图气泡图（分省）",
+      "url": "https://hanabi.cn/h2/visualisation/static_bubble_map_provincial",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地区切换",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "静态地图气泡图（分省）"
+    },
+    {
+      "id": 20,
+      "name": "动态时间轴（新）",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_timeline_chart2",
+      "family": "event_timeline",
+      "input_summary": "官网数据指引为空；以下是按图形结构归纳的自绘字段：时间/日期、标题、事件、可选左右位置",
+      "input_status": "site_guide_missing",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图表样式",
+        "标注",
+        "数据应用范围",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "渐变",
+        "淡出"
+      ],
+      "visual_variant": "时间轴（新）"
+    },
+    {
+      "id": 21,
+      "name": "得分环",
+      "url": "https://hanabi.cn/h2/visualisation/ring_gauge",
+      "family": "progress_comparison",
+      "input_summary": "A为时间/右下文字，B起各项数值。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "得分环"
+    },
+    {
+      "id": 22,
+      "name": "折线图（带标注)",
+      "url": "https://hanabi.cn/h2/visualisation/line_with_notes",
+      "family": "line_trend",
+      "input_summary": "有序横轴、数值系列、可选节点文字",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "图标设置",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "折线图（带标注)"
+    },
+    {
+      "id": 23,
+      "name": "箱型图",
+      "url": "https://hanabi.cn/h2/visualisation/box_plot",
+      "family": "boxplot",
+      "input_summary": "A组名、B原始样本值，同组可多行。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "箱型图"
+    },
+    {
+      "id": 24,
+      "name": "动态玫瑰图（环）",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_stacked_rose_chart",
+      "family": "hierarchical_radial",
+      "input_summary": "前列为层级路径，末列非负值；动态时间映射说明不足，需确认实际表头。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "标注",
+        "图例",
+        "坐标轴",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "弹跳",
+        "渐变",
+        "淡出"
+      ],
+      "visual_variant": "玫瑰图（环）"
+    },
+    {
+      "id": 25,
+      "name": "动态基础玫瑰图（环）",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_rose_chart2",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "标注",
+        "图例",
+        "坐标轴",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玫瑰图（环）"
+    },
+    {
+      "id": 26,
+      "name": "动态玫瑰图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_stacked_rose_chart2",
+      "family": "hierarchical_radial",
+      "input_summary": "前列为层级路径，末列非负值；动态时间映射说明不足，需确认实际表头。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "标注",
+        "图例",
+        "坐标轴",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "玫瑰图"
+    },
+    {
+      "id": 27,
+      "name": "动态基础玫瑰图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_rose_chart",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "标注",
+        "图例",
+        "坐标轴",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "弹跳",
+        "渐变",
+        "淡出"
+      ],
+      "visual_variant": "基础玫瑰图"
+    },
+    {
+      "id": 28,
+      "name": "动态基础玫瑰图（半环）",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_rose_chart3",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "标注",
+        "图例",
+        "坐标轴",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玫瑰图（半环）"
+    },
+    {
+      "id": 29,
+      "name": "动态基础玫瑰图（半环竖）",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_rose_chart4",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "标注",
+        "图例",
+        "坐标轴",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玫瑰图（半环竖）"
+    },
+    {
+      "id": 30,
+      "name": "动态扇形玫瑰图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_quarter_rose_chart",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "标注",
+        "图例",
+        "坐标轴",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "扇形玫瑰图"
+    },
+    {
+      "id": 31,
+      "name": "堆叠条形图",
+      "url": "https://hanabi.cn/h2/visualisation/stacked_bar_chart",
+      "family": "stacked_composition",
+      "input_summary": "类别/组、可相加的组成值、共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数据排序",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "堆叠条形图"
+    },
+    {
+      "id": 32,
+      "name": "动态瀑布图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_waterfall_chart",
+      "family": "waterfall",
+      "input_summary": "A阶段名、B阶段实际值；网站自动计算相邻差。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "瀑布图"
+    },
+    {
+      "id": 33,
+      "name": "基础柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/column_chart",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础柱状图"
+    },
+    {
+      "id": 34,
+      "name": "折线柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/combo_dual_axes_chart",
+      "family": "dual_axis_combo",
+      "input_summary": "A类别、B右轴折线、C左轴柱形；可在控件调整映射。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "数据应用范围",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "折线柱状图"
+    },
+    {
+      "id": 35,
+      "name": "三角柱形图",
+      "url": "https://hanabi.cn/h2/visualisation/triangular_bar_chart",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "三角柱形图"
+    },
+    {
+      "id": 36,
+      "name": "分组柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/grouped_column_chart",
+      "family": "grouped_comparison",
+      "input_summary": "类别、系列、数值",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "分组柱状图"
+    },
+    {
+      "id": 37,
+      "name": "分组折线柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/line_grouped_bar",
+      "family": "dual_axis_combo",
+      "input_summary": "文字沿用三列柱线说明；控件支持柱/线数据范围。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "数据应用范围",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "分组折线柱状图"
+    },
+    {
+      "id": 38,
+      "name": "堆叠柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/stacked_column_chart",
+      "family": "stacked_composition",
+      "input_summary": "类别/组、可相加的组成值、共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "堆叠柱状图"
+    },
+    {
+      "id": 39,
+      "name": "百分比堆叠柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/percentage_stacked_column_chart",
+      "family": "stacked_composition",
+      "input_summary": "类别/组、可相加的组成值、共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "百分比堆叠柱状图"
+    },
+    {
+      "id": 40,
+      "name": "堆叠折线柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/line_stacked_bar",
+      "family": "dual_axis_combo",
+      "input_summary": "文字沿用三列柱线说明；控件支持柱/线数据范围。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "数据应用范围",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "堆叠折线柱状图"
+    },
+    {
+      "id": 41,
+      "name": "双向柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/bidirectional_bar_chart",
+      "family": "diverging_comparison",
+      "input_summary": "网站指引：3列；语义字段为共同类别、正负系列或左右群体；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "双向柱状图"
+    },
+    {
+      "id": 42,
+      "name": "象形柱图",
+      "url": "https://hanabi.cn/h2/visualisation/pictorial_column_chart",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "坐标轴",
+        "图标设置",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "象形柱图"
+    },
+    {
+      "id": 43,
+      "name": "动态折线排名图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_line_rank_chart",
+      "family": "ranking_over_time",
+      "input_summary": "A横轴，B起每列一个系列，网站建议少于九线。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "数据排序",
+        "图形样式",
+        "图例",
+        "标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "折线排名图"
+    },
+    {
+      "id": 44,
+      "name": "折线图",
+      "url": "https://hanabi.cn/h2/visualisation/line_chart",
+      "family": "line_trend",
+      "input_summary": "有序横轴、数值系列、可选节点文字",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "折线图"
+    },
+    {
+      "id": 45,
+      "name": "迷你折线图",
+      "url": "https://hanabi.cn/h2/visualisation/spark_line",
+      "family": "line_trend",
+      "input_summary": "有序横轴、数值系列、可选节点文字",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "迷你折线图"
+    },
+    {
+      "id": 46,
+      "name": "动态对比条形图",
+      "url": "https://hanabi.cn/h2/visualisation/diverging_bar",
+      "family": "ranking_over_time",
+      "input_summary": "A颜色组、B对象；后续为多期非负值。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "对比条形图"
+    },
+    {
+      "id": 47,
+      "name": "基础条形图",
+      "url": "https://hanabi.cn/h2/visualisation/bar_chart",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数据排序",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础条形图"
+    },
+    {
+      "id": 48,
+      "name": "分组条形图",
+      "url": "https://hanabi.cn/h2/visualisation/grouped_bar_chart",
+      "family": "grouped_comparison",
+      "input_summary": "类别、系列、数值",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数据排序",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "分组条形图"
+    },
+    {
+      "id": 49,
+      "name": "百分比堆叠条形图",
+      "url": "https://hanabi.cn/h2/visualisation/percentage_stacked_bar_chart",
+      "family": "stacked_composition",
+      "input_summary": "类别/组、可相加的组成值、共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数据排序",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "百分比堆叠条形图"
+    },
+    {
+      "id": 50,
+      "name": "象形条形图",
+      "url": "https://hanabi.cn/h2/visualisation/pictorial_bar_chart",
+      "family": "comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、数值、单位；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "坐标轴",
+        "图标设置",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "象形条形图"
+    },
+    {
+      "id": 51,
+      "name": "漏斗图",
+      "url": "https://hanabi.cn/h2/visualisation/funne_chart",
+      "family": "funnel",
+      "input_summary": "网站指引：2列；语义字段为有顺序阶段、各阶段量、共同人群口径；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "漏斗图"
+    },
+    {
+      "id": 52,
+      "name": "基础饼图",
+      "url": "https://hanabi.cn/h2/visualisation/pie_chart",
+      "family": "pie_donut",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、完整共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "整体顺时针",
+        "单个顺时针",
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "基础饼图"
+    },
+    {
+      "id": 53,
+      "name": "多级饼图",
+      "url": "https://hanabi.cn/h2/visualisation/mult_level_pie_chart",
+      "family": "hierarchical_radial",
+      "input_summary": "前列为层级路径，末列非负值；动态时间映射说明不足，需确认实际表头。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "多级饼图"
+    },
+    {
+      "id": 54,
+      "name": "不规则饼图",
+      "url": "https://hanabi.cn/h2/visualisation/irregular_pie_chart",
+      "family": "pie_donut",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、完整共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "不规则饼图"
+    },
+    {
+      "id": 55,
+      "name": "环图",
+      "url": "https://hanabi.cn/h2/visualisation/donut_chart",
+      "family": "pie_donut",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、完整共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息"
+      ],
+      "animation_options_checked": [
+        "整体顺时针",
+        "单个顺时针",
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "环图"
+    },
+    {
+      "id": 56,
+      "name": "对比环形图",
+      "url": "https://hanabi.cn/h2/visualisation/grouped_donut_chart",
+      "family": "progress_comparison",
+      "input_summary": "网站指引：2列；语义字段为对象、实际比例或目标/实际/区间；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "整体顺时针",
+        "单个顺时针",
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "对比环形图"
+    },
+    {
+      "id": 57,
+      "name": "半圆环图",
+      "url": "https://hanabi.cn/h2/visualisation/semi_circle_donut_chart",
+      "family": "pie_donut",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、完整共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "半圆环图"
+    },
+    {
+      "id": 58,
+      "name": "多级环图",
+      "url": "https://hanabi.cn/h2/visualisation/mult_level_donut_chart",
+      "family": "hierarchical_radial",
+      "input_summary": "前列为层级路径，末列非负值；动态时间映射说明不足，需确认实际表头。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "多级环图"
+    },
+    {
+      "id": 59,
+      "name": "基础玫瑰图(环)",
+      "url": "https://hanabi.cn/h2/visualisation/rose_chart2",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玫瑰图(环)"
+    },
+    {
+      "id": 60,
+      "name": "基础玫瑰图",
+      "url": "https://hanabi.cn/h2/visualisation/rose_chart",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玫瑰图"
+    },
+    {
+      "id": 61,
+      "name": "扇形玫瑰图",
+      "url": "https://hanabi.cn/h2/visualisation/quarter_rose_chart",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "扇形玫瑰图"
+    },
+    {
+      "id": 62,
+      "name": "基础玫瑰图(半环)",
+      "url": "https://hanabi.cn/h2/visualisation/rose_chart3",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玫瑰图(半环)"
+    },
+    {
+      "id": 63,
+      "name": "动态圆堆图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_packed_circle_chart",
+      "family": "circle_packing",
+      "input_summary": "B为非负值，C起列头用于时点文字；A包含颜色组信息，详细映射需核实。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "圆堆底色",
+        "标注",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "圆堆图"
+    },
+    {
+      "id": 64,
+      "name": "动态树图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_treemap",
+      "family": "treemap",
+      "input_summary": "B为非负值，后续表头用于时点文字；逐期布局需核实。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "标注",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "树图"
+    },
+    {
+      "id": 65,
+      "name": "圆堆图",
+      "url": "https://hanabi.cn/h2/visualisation/packed_circle_chart",
+      "family": "circle_packing",
+      "input_summary": "类别、非负值、可选真实时间；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "圆堆底色",
+        "标注",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "圆堆图"
+    },
+    {
+      "id": 66,
+      "name": "堆叠面积图",
+      "url": "https://hanabi.cn/h2/visualisation/stacked_area_chart",
+      "family": "area_trend",
+      "input_summary": "有序时间、可加系列或下上界；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "堆叠面积图"
+    },
+    {
+      "id": 67,
+      "name": "基础面积图",
+      "url": "https://hanabi.cn/h2/visualisation/area_chart",
+      "family": "area_trend",
+      "input_summary": "有序时间、可加系列或下上界",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础面积图"
+    },
+    {
+      "id": 68,
+      "name": "雷达图",
+      "url": "https://hanabi.cn/h2/visualisation/radar_chart",
+      "family": "radar",
+      "input_summary": "指标、对象系列、同量纲或明确归一化；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "雷达图"
+    },
+    {
+      "id": 69,
+      "name": "词云",
+      "url": "https://hanabi.cn/h2/visualisation/wordcloud",
+      "family": "wordcloud",
+      "input_summary": "网站指引：2列；语义字段为词语、频次/权重；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "词云"
+    },
+    {
+      "id": 70,
+      "name": "动态地图热力图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_choropleth_map",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "地图热力图"
+    },
+    {
+      "id": 71,
+      "name": "动态地图气泡图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_bubble_map",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "地图气泡图"
+    },
+    {
+      "id": 72,
+      "name": "动态时间轴图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_timeline_chart",
+      "family": "event_timeline",
+      "input_summary": "五列时间轴：年份/时间小标题/框内文字/具体节点/事件。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 5,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "标注",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "时间轴图"
+    },
+    {
+      "id": 73,
+      "name": "水波图",
+      "url": "https://hanabi.cn/h2/visualisation/liquid_fill_gauge",
+      "family": "progress_comparison",
+      "input_summary": "网站指引：2列；语义字段为对象、实际比例或目标/实际/区间；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "水波图"
+    },
+    {
+      "id": 74,
+      "name": "阶梯折线图",
+      "url": "https://hanabi.cn/h2/visualisation/stepped_line_chart",
+      "family": "line_trend",
+      "input_summary": "有序横轴、数值系列、可选节点文字",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "交互提示"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "阶梯折线图"
+    },
+    {
+      "id": 75,
+      "name": "分组条形图（新）",
+      "url": "https://hanabi.cn/h2/visualisation/grouped_bar_chart3",
+      "family": "grouped_comparison",
+      "input_summary": "类别、系列、数值",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数据排序",
+        "图形样式",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "分组条形图（新）"
+    },
+    {
+      "id": 76,
+      "name": "蝴蝶图",
+      "url": "https://hanabi.cn/h2/visualisation/butterfly_chart",
+      "family": "diverging_comparison",
+      "input_summary": "网站指引：3列；语义字段为共同类别、正负系列或左右群体；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "蝴蝶图"
+    },
+    {
+      "id": 77,
+      "name": "人口金字塔",
+      "url": "https://hanabi.cn/h2/visualisation/population_pyramid_chart",
+      "family": "diverging_comparison",
+      "input_summary": "官网数据指引为空；以下是按图形结构归纳的自绘字段：共同类别、正负系列或左右群体",
+      "input_status": "site_guide_missing",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "放大",
+        "淡入",
+        "扩展"
+      ],
+      "visual_variant": "人口金字塔"
+    },
+    {
+      "id": 78,
+      "name": "区间条形图",
+      "url": "https://hanabi.cn/h2/visualisation/range_bar_chart",
+      "family": "range",
+      "input_summary": "网站指引：3列；语义字段为类别、起/下界、终/上界",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "区间条形图"
+    },
+    {
+      "id": 79,
+      "name": "哑铃图",
+      "url": "https://hanabi.cn/h2/visualisation/dumbbell_plot2",
+      "family": "paired_change",
+      "input_summary": "网站指引：3列；语义字段为类别、前值、后值、时点/条件",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数据排序",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "哑铃图"
+    },
+    {
+      "id": 80,
+      "name": "动态极坐标折线图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_radial_line",
+      "family": "polar_line",
+      "input_summary": "极轴/周期类别、径向值；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "文字标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "极坐标折线图"
+    },
+    {
+      "id": 81,
+      "name": "极坐标柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/radial_column_chart",
+      "family": "polar_bar",
+      "input_summary": "网站指引：2列；语义字段为极轴类别、非负径向值；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "数值标注",
+        "类别标注",
+        "中央文字标注",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "极坐标柱状图"
+    },
+    {
+      "id": 82,
+      "name": "基础玉珏图",
+      "url": "https://hanabi.cn/h2/visualisation/radial_bar_chart",
+      "family": "radial_comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、值、共同角度尺度、可选组成；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "类别标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玉珏图"
+    },
+    {
+      "id": 83,
+      "name": "玉珏图(线)",
+      "url": "https://hanabi.cn/h2/visualisation/radial_bar_chart2",
+      "family": "radial_comparison",
+      "input_summary": "网站指引：2列；语义字段为类别、值、共同角度尺度、可选组成；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "类别标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "玉珏图(线)"
+    },
+    {
+      "id": 84,
+      "name": "堆叠玉珏图",
+      "url": "https://hanabi.cn/h2/visualisation/stacked_radial_bar_chart",
+      "family": "radial_comparison",
+      "input_summary": "官网数据指引为空；以下是按图形结构归纳的自绘字段：类别、值、共同角度尺度、可选组成",
+      "input_status": "site_guide_missing",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "整体顺时针",
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "堆叠玉珏图"
+    },
+    {
+      "id": 85,
+      "name": "动态气泡图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_bubble_chart",
+      "family": "bubble",
+      "input_summary": "默认六列：名称、颜色组、时间、X、Y、面积大小；可调映射。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 6,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "标注",
+        "图例",
+        "坐标轴",
+        "数据应用范围",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "气泡图"
+    },
+    {
+      "id": 86,
+      "name": "极坐标折线图",
+      "url": "https://hanabi.cn/h2/visualisation/radial_line",
+      "family": "polar_line",
+      "input_summary": "极轴/周期类别、径向值；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "图例",
+        "文字标注",
+        "坐标轴",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "极坐标折线图"
+    },
+    {
+      "id": 87,
+      "name": "子弹图",
+      "url": "https://hanabi.cn/h2/visualisation/bullet_graph_chart",
+      "family": "progress_comparison",
+      "input_summary": "A类别、B目标、C实际，E起区间带；D的角色未解释。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入",
+        "扩展",
+        "闪入"
+      ],
+      "visual_variant": "子弹图"
+    },
+    {
+      "id": 88,
+      "name": "子弹图（竖）",
+      "url": "https://hanabi.cn/h2/visualisation/bullet_vertical_chart",
+      "family": "progress_comparison",
+      "input_summary": "A类别、B目标、C实际，E起区间带；D未解释。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "子弹图（竖）"
+    },
+    {
+      "id": 89,
+      "name": "基础散点图",
+      "url": "https://hanabi.cn/h2/visualisation/scatter_plot",
+      "family": "scatter",
+      "input_summary": "X、Y两列，第三列可选名称。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "文字标注",
+        "坐标轴",
+        "数据应用范围",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础散点图"
+    },
+    {
+      "id": 90,
+      "name": "气泡图",
+      "url": "https://hanabi.cn/h2/visualisation/bubble_chart",
+      "family": "bubble",
+      "input_summary": "说明称五列，列出X/Y/名称/半径；控件另含颜色映射。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": 5,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "文字标注",
+        "坐标轴",
+        "数据应用范围",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "放大",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "气泡图"
+    },
+    {
+      "id": 91,
+      "name": "树图",
+      "url": "https://hanabi.cn/h2/visualisation/treemap",
+      "family": "treemap",
+      "input_summary": "网站指引：2列；语义字段为类别/层级路径、非负大小值；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "树图"
+    },
+    {
+      "id": 92,
+      "name": "双层树图",
+      "url": "https://hanabi.cn/h2/visualisation/multilevel-treemap",
+      "family": "treemap",
+      "input_summary": "三列，末列为非负值；前两列用于层级。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "双层树图"
+    },
+    {
+      "id": 93,
+      "name": "沃罗诺伊树图",
+      "url": "https://hanabi.cn/h2/visualisation/voronoi-treemap-rect",
+      "family": "treemap",
+      "input_summary": "网站指引：2列；语义字段为类别/层级路径、非负大小值；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "沃罗诺伊树图"
+    },
+    {
+      "id": 94,
+      "name": "沃罗诺伊图",
+      "url": "https://hanabi.cn/h2/visualisation/voronoi-treemap-circle",
+      "family": "treemap",
+      "input_summary": "网站指引：2列；语义字段为类别/层级路径、非负大小值；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "标注",
+        "数据格式",
+        "交互提示"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "沃罗诺伊图"
+    },
+    {
+      "id": 95,
+      "name": "时间轴",
+      "url": "https://hanabi.cn/h2/visualisation/timeline_chart",
+      "family": "event_timeline",
+      "input_summary": "位置时间、标题、事件、左右位置四列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 4,
+      "configuration_sections": [
+        "配色方案",
+        "时间轴图表",
+        "标注",
+        "数据应用范围",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "时间轴"
+    },
+    {
+      "id": 96,
+      "name": "交互旭日图",
+      "url": "https://hanabi.cn/h2/visualisation/sunburst_chart",
+      "family": "hierarchical_radial",
+      "input_summary": "一级、二级、三级、数值四列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 4,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "交互旭日图"
+    },
+    {
+      "id": 97,
+      "name": "旭日图",
+      "url": "https://hanabi.cn/h2/visualisation/sunburst",
+      "family": "hierarchical_radial",
+      "input_summary": "层级路径各列，末列非负值，层数可变。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "旭日图"
+    },
+    {
+      "id": 98,
+      "name": "关系力导向图",
+      "url": "https://hanabi.cn/h2/visualisation/force_directed_graph",
+      "family": "network",
+      "input_summary": "来源节点、目标节点、关系权重、边描述四列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 4,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "文字标注",
+        "数据应用范围"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "关系力导向图"
+    },
+    {
+      "id": 99,
+      "name": "分组力导向图",
+      "url": "https://hanabi.cn/h2/visualisation/grouped_force_directed_graph",
+      "family": "network",
+      "input_summary": "来源节点、目标节点、关系权重三列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "文字标注",
+        "数据应用范围",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "分组力导向图"
+    },
+    {
+      "id": 100,
+      "name": "河流图",
+      "url": "https://hanabi.cn/h2/visualisation/stream_graph",
+      "family": "area_trend",
+      "input_summary": "有序时间、可加系列或下上界；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "河流图"
+    },
+    {
+      "id": 101,
+      "name": "直方图",
+      "url": "https://hanabi.cn/h2/visualisation/histogram",
+      "family": "histogram",
+      "input_summary": "两列输入，其中B为原始样本；网站按箱数/箱宽分布。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "直方图"
+    },
+    {
+      "id": 102,
+      "name": "百分比堆叠面积图",
+      "url": "https://hanabi.cn/h2/visualisation/percentage_stacked_area_chart",
+      "family": "area_trend",
+      "input_summary": "有序时间、可加系列或下上界；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "百分比堆叠面积图"
+    },
+    {
+      "id": 103,
+      "name": "区间面积图",
+      "url": "https://hanabi.cn/h2/visualisation/range_area_chart",
+      "family": "area_trend",
+      "input_summary": "网站指引：3列；语义字段为有序时间、可加系列或下上界",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "区间面积图"
+    },
+    {
+      "id": 104,
+      "name": "静态地图热力图",
+      "url": "https://hanabi.cn/h2/visualisation/static_choropleth_map",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "静态地图热力图"
+    },
+    {
+      "id": 105,
+      "name": "静态地图气泡图",
+      "url": "https://hanabi.cn/h2/visualisation/static_bubble_map",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间；涉及大小的数值为非负。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "静态地图气泡图"
+    },
+    {
+      "id": 106,
+      "name": "动态地图流向图",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_flow_map",
+      "family": "geographic_flow",
+      "input_summary": "时间、来源省份、目标省份、非负流量四列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 4,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "地图流向图"
+    },
+    {
+      "id": 107,
+      "name": "动态地图热力图（分省）",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_choropleth_map_provincial",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地区切换",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "地图热力图（分省）"
+    },
+    {
+      "id": 108,
+      "name": "动态地图气泡图（分省）",
+      "url": "https://hanabi.cn/h2/visualisation/dynamic_bubble_map_provincial",
+      "family": "geographic_distribution",
+      "input_summary": "同层级地区、数值、可选多期时间",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "地区切换",
+        "地图类型切换",
+        "图形样式",
+        "标注",
+        "图例"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "地图气泡图（分省）"
+    },
+    {
+      "id": 109,
+      "name": "扇形饼图",
+      "url": "https://hanabi.cn/h2/visualisation/quarter_pie_chart",
+      "family": "pie_donut",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、完整共同分母；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "扇形饼图"
+    },
+    {
+      "id": 110,
+      "name": "基础玫瑰图(半环竖)",
+      "url": "https://hanabi.cn/h2/visualisation/rose_chart4",
+      "family": "rose",
+      "input_summary": "网站指引：2列；语义字段为类别、非负值、明确半径/面积编码；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "基础玫瑰图(半环竖)"
+    },
+    {
+      "id": 111,
+      "name": "玫瑰图",
+      "url": "https://hanabi.cn/h2/visualisation/stacked_rose_chart",
+      "family": "hierarchical_radial",
+      "input_summary": "前列为层级路径，末列非负值；动态时间映射说明不足，需确认实际表头。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "玫瑰图"
+    },
+    {
+      "id": 112,
+      "name": "玫瑰图(环)",
+      "url": "https://hanabi.cn/h2/visualisation/stacked_rose_chart2",
+      "family": "hierarchical_radial",
+      "input_summary": "前列为层级路径，末列非负值；动态时间映射说明不足，需确认实际表头。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "玫瑰图(环)"
+    },
+    {
+      "id": 113,
+      "name": "对比环形图(半环)",
+      "url": "https://hanabi.cn/h2/visualisation/grouped_donut_chart_half",
+      "family": "progress_comparison",
+      "input_summary": "网站指引：2列；语义字段为对象、实际比例或目标/实际/区间；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "数据格式",
+        "提示信息"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "对比环形图(半环)"
+    },
+    {
+      "id": 114,
+      "name": "柱形雷达图",
+      "url": "https://hanabi.cn/h2/visualisation/radar_bar_chart",
+      "family": "radar",
+      "input_summary": "指标、对象系列、同量纲或明确归一化；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "柱形雷达图"
+    },
+    {
+      "id": 115,
+      "name": "星型雷达图",
+      "url": "https://hanabi.cn/h2/visualisation/radar_star_chart",
+      "family": "radar",
+      "input_summary": "指标、对象系列、同量纲或明确归一化；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "坐标轴",
+        "数据格式",
+        "提示信息",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "星型雷达图"
+    },
+    {
+      "id": 116,
+      "name": "自定义水波图",
+      "url": "https://hanabi.cn/h2/visualisation/custom_liquid_fiil_gauge",
+      "family": "progress_comparison",
+      "input_summary": "网站指引：2列；语义字段为对象、实际比例或目标/实际/区间；涉及大小的数值为非负。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "图形样式",
+        "数值标注",
+        "图例",
+        "数据格式",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "自定义水波图"
+    },
+    {
+      "id": 117,
+      "name": "分组堆叠柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/column_clustered_stacked",
+      "family": "stacked_composition",
+      "input_summary": "A横轴；C起非负数值，B用于组别的具体映射需核实。",
+      "input_status": "site_guide_incomplete_or_ambiguous",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示"
+      ],
+      "animation_options_checked": [
+        "放大",
+        "跟随路径",
+        "向上移入",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "分组堆叠柱状图"
+    },
+    {
+      "id": 118,
+      "name": "区间柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/range_column_chart",
+      "family": "range",
+      "input_summary": "网站指引：3列；语义字段为类别、起/下界、终/上界",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "区间柱状图"
+    },
+    {
+      "id": 119,
+      "name": "甘特图",
+      "url": "https://hanabi.cn/h2/visualisation/time_bar_chart",
+      "family": "gantt",
+      "input_summary": "任务名、开始、结束三列，后两列为时间。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "图例",
+        "数值标注",
+        "坐标轴",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [
+        "放大",
+        "跟随路径",
+        "向右移入",
+        "淡入"
+      ],
+      "visual_variant": "甘特图"
+    },
+    {
+      "id": 120,
+      "name": "瀑布图",
+      "url": "https://hanabi.cn/h2/visualisation/waterfall_chart",
+      "family": "waterfall",
+      "input_summary": "A阶段名、B实际值，自动计算相邻差。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 2,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "瀑布图"
+    },
+    {
+      "id": 121,
+      "name": "哑铃图（竖）",
+      "url": "https://hanabi.cn/h2/visualisation/dumbbell_chart",
+      "family": "paired_change",
+      "input_summary": "网站指引：3列；语义字段为类别、前值、后值、时点/条件",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "哑铃图（竖）"
+    },
+    {
+      "id": 122,
+      "name": "迷你柱状图",
+      "url": "https://hanabi.cn/h2/visualisation/column_sparkline",
+      "family": "comparison",
+      "input_summary": "类别、数值、单位",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "迷你柱状图"
+    },
+    {
+      "id": 123,
+      "name": "分面条形图",
+      "url": "https://hanabi.cn/h2/visualisation/grouped_bar_chart2",
+      "family": "grouped_comparison",
+      "input_summary": "类别、系列、数值",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": null,
+      "configuration_sections": [
+        "配色方案",
+        "动画类型",
+        "图形样式",
+        "数值标注",
+        "坐标轴",
+        "数据格式",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "分面条形图"
+    },
+    {
+      "id": 124,
+      "name": "桑基图",
+      "url": "https://hanabi.cn/h2/visualisation/sankey_diagram",
+      "family": "flow",
+      "input_summary": "来源、目的、非负流量三列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "文字标注",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "桑基图"
+    },
+    {
+      "id": 125,
+      "name": "弦图",
+      "url": "https://hanabi.cn/h2/visualisation/chordDiagram",
+      "family": "flow",
+      "input_summary": "来源、目的、非负流量三列。",
+      "input_status": "site_guide_reviewed",
+      "fixed_columns_in_site_guide": 3,
+      "configuration_sections": [
+        "配色方案",
+        "数值标注",
+        "交互提示",
+        "位置、尺寸"
+      ],
+      "animation_options_checked": [],
+      "visual_variant": "弦图"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vox 数据视频"
+  short_description: "从 Excel 数据分析与选图，到文字动画和撕纸拼贴风格的数据视频"
+  default_prompt: "使用 $vox-data-video 分析我提供的 Excel，选择合适的可视化图表并制作 Vox 风格数据视频。"
