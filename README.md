@@ -34,6 +34,23 @@ git clone https://github.com/jesusguy115-crypto/vox-data-video.git "${CODEX_HOME
 
 ## 运行条件
 
-表格读取使用 Python 标准库；材质和画布依赖 Pillow/NumPy。视频优先使用 FFmpeg，macOS 无 FFmpeg 时可使用附带的 Swift/AVFoundation 编码器。中文需有可用字体。详细命令见 `references/rendering.md`。
+表格读取使用 Python 标准库；材质和画布依赖 Pillow/NumPy。视频优先使用 FFmpeg，macOS 无 FFmpeg 时可使用附带的 Swift/AVFoundation 编码器。随包包含统一的 Noto Sans SC 中文字体与许可证。详细命令见 `references/rendering.md`。
 
 Vox 是视觉方向参考，本项目不属于 Vox，也不使用其标志。Hanabi 是样式研究参考；仓库不包含其网站代码。使用参考资产时请核对适用的权利。
+
+## 2.0 快速模板与统一复现
+
+已实现双/多折线、单系列横条、饼图和一柱一线组合模板。适配这些模板时调用同一个渲染入口，不让不同 AI 各写一套相似版式。右侧背景已收窄，标题按文字宽度排版，保留更大的图表空间。
+
+```sh
+python scripts/check_environment.py
+python -m pip install -r requirements.txt
+python scripts/render_video.py --scene examples/two-series-line.json --cache work/video-cache --preview-only
+python scripts/render_video.py --scene examples/two-series-line.json --cache work/video-cache --out outputs/example.mp4 --report work/render.json
+```
+
+安装依赖只在缺失时进行。示例固定吴艳妮/中岛瞳、黑白朱红、秒单位；参考画面见 `assets/layout-reference.jpg`。同一数据还需同一标题、配色和轴尺度，才能复现相同版式。无脚本执行能力的会话不能仅靠安装 Skill 复现。详细边界见 `references/reproducibility.md`。
+
+直接传帧编码，不写几百张临时 PNG。本机同规格实测：旧流程约 45.8 秒，新流程缓存就绪后约 2.6–4.5 秒；首次编译额外约 21 秒。这只计算导出，不含读表、对话等待与检查。Mac 原生路径已实测；FFmpeg 跨系统路径尚未在 Linux/Windows 实机验证。
+
+字体来自 [Google Fonts 官方 Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc)，遵循附带的 SIL Open Font License 1.1。示例用于验证版式，不能替代新任务的数据。

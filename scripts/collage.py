@@ -51,7 +51,12 @@ class Scene:
 
     def font(self,size,bold=False):
         key=(int(size),bold)
-        if key not in self.fonts:self.fonts[key]=ImageFont.truetype(self.font_bold if bold else self.font_regular,int(size))
+        if key not in self.fonts:
+            f=ImageFont.truetype(self.font_bold if bold else self.font_regular,int(size))
+            try:
+                axes=f.get_variation_axes();values=[(700 if bold else 500) if a['name']==b'Weight' else a['default'] for a in axes];f.set_variation_by_axes(values)
+            except OSError:pass
+            self.fonts[key]=f
         return self.fonts[key]
 
     def text(self,value,xy,size=32,fill=None,bold=False,anchor='lt'):

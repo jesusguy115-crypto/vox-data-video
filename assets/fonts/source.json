@@ -1,0 +1,11 @@
+{
+  "name": "Noto Sans SC",
+  "source": "https://github.com/google/fonts/tree/main/ofl/notosanssc",
+  "git_blob": "fb0637bafbcd804fe32152370a1225990745b4bc",
+  "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+  "license": "SIL Open Font License 1.1",
+  "font_weights": {
+    "regular": 500,
+    "bold": 700
+  }
+}

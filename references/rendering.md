@@ -1,5 +1,7 @@
 # 执行与交付
 
+常用图表先查 [快速制作](fast-rendering.md)，优先使用已实现模板和直接编码。以下逐帧 PNG 流程作为自定义场景与回退路径。
+
 所有路径相对当前任务和 Skill 目录解析，不写死作者的 Desktop、运行时或旧球员数据。提取 JSON、材质、场景代码和帧写 work/，最终文件写 outputs/。当前环境有依赖加载工具时先定位运行时；画布和材质脚本需要 Pillow/NumPy，表格提取仅需标准库。
 
 ```sh
@@ -13,7 +15,7 @@ python scripts/make_paper.py --out 'work/paper' --width 1920 --height 1080
 
 保存 scene.json，先记录 theme.text、theme.source、highlight 及 narrative_effects；无用户主题时 theme.text=null、highlight=null、narrative_effects=false。默认 extra_info_cards=false、production_captions=false。再记录包含数据、源单元格、单位、轴范围、顺序、类型、标题、重点、画幅、fps、时长与节拍。使用 scripts/collage.py 的 Scene、ease 和 torn_points 编写短场景脚本。它是材料画布，不替代理解数据，也不限制图表类型；需要时用 Matplotlib/SVG 等绘制精确图形后加入纸层。
 
-中文字体显式定位，macOS 可检查 PingFang/Heiti，其他平台使用已存在的中文字体。测最长文本 bounding box，优先换布局而非缩成小字。先渲染 3–5 张关键帧检查，再生成连续 frame_000000.png…；缓存纹理/字体/纸层，不每帧重新生成。
+内置模板使用打包的 Noto Sans SC；不得默默改用系统字库。自定义场景或用户指定字体时再显式定位其他中文字体。测最长文本 bounding box，优先换布局而非缩成小字。先渲染 3–5 张关键帧检查，再生成连续 frame_000000.png…；缓存纹理/字体/纸层，不每帧重新生成。
 
 优先使用 FFmpeg：
 
