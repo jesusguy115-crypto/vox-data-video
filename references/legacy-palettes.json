@@ -1,0 +1,203 @@
+{
+  "default": "classic-paper",
+  "palettes": [
+    {
+      "number": 1,
+      "id": "classic-paper",
+      "name": "经典纸黄",
+      "canvas": "#D4D0C4",
+      "paper": "#F2EEE2",
+      "ink": "#20282B",
+      "muted": "#626B67",
+      "primary": "#FBD32E",
+      "secondary": "#C93824",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#FBD32E",
+        "#345A6C",
+        "#CD5037",
+        "#7C9993",
+        "#B89B73",
+        "#7B6C94",
+        "#7394B1",
+        "#4B5656"
+      ]
+    },
+    {
+      "number": 2,
+      "id": "blue-coral",
+      "name": "蓝珊瑚",
+      "canvas": "#DCE3ED",
+      "paper": "#F2F5F9",
+      "ink": "#20304A",
+      "muted": "#5E6B7E",
+      "primary": "#315BBA",
+      "secondary": "#E77861",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#315BBA",
+        "#E77861",
+        "#319C97",
+        "#A07CC1",
+        "#DAB354",
+        "#7B96C4",
+        "#AF7566",
+        "#4D6876"
+      ]
+    },
+    {
+      "number": 3,
+      "id": "forest-orange",
+      "name": "森林橙",
+      "canvas": "#D8DFD2",
+      "paper": "#F1F2E9",
+      "ink": "#1D332B",
+      "muted": "#596B5E",
+      "primary": "#2C6950",
+      "secondary": "#D9863D",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#2C6950",
+        "#D9863D",
+        "#80A789",
+        "#CAB76D",
+        "#677C95",
+        "#AC745F",
+        "#927BA3",
+        "#4A5552"
+      ]
+    },
+    {
+      "number": 4,
+      "id": "plum-gold",
+      "name": "梅紫金",
+      "canvas": "#DED1D8",
+      "paper": "#F7EFEE",
+      "ink": "#3B233A",
+      "muted": "#756272",
+      "primary": "#75486F",
+      "secondary": "#D1A441",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#75486F",
+        "#D1A441",
+        "#B67D89",
+        "#568C88",
+        "#8994B6",
+        "#BE916D",
+        "#5F657D",
+        "#9B9A72"
+      ]
+    },
+    {
+      "number": 5,
+      "id": "navy-mint",
+      "name": "深海薄荷",
+      "canvas": "#172E40",
+      "paper": "#F0F5F2",
+      "ink": "#203649",
+      "muted": "#566F78",
+      "primary": "#78C6AA",
+      "secondary": "#EAAC79",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#2C5874",
+        "#78C6AA",
+        "#EAAC79",
+        "#899ABD",
+        "#BF7E88",
+        "#B9B46B",
+        "#568F91",
+        "#76698A"
+      ]
+    },
+    {
+      "number": 6,
+      "id": "terracotta-indigo",
+      "name": "陶土靛蓝",
+      "canvas": "#D5C0AE",
+      "paper": "#F4ECE0",
+      "ink": "#283A48",
+      "muted": "#62655F",
+      "primary": "#B55E42",
+      "secondary": "#4B5E94",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#B55E42",
+        "#4B5E94",
+        "#8DA29D",
+        "#D4AA62",
+        "#9B7D95",
+        "#648897",
+        "#D28B6A",
+        "#6B6759"
+      ]
+    },
+    {
+      "number": 7,
+      "id": "ice-cobalt",
+      "name": "冰蓝电蓝",
+      "canvas": "#E1E9F3",
+      "paper": "#F4F8FC",
+      "ink": "#1D3456",
+      "muted": "#586D88",
+      "primary": "#2F63D8",
+      "secondary": "#F39854",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#2F63D8",
+        "#F39854",
+        "#45A7A1",
+        "#B38CC9",
+        "#E6C36C",
+        "#7B9CCA",
+        "#D37177",
+        "#526D8E"
+      ]
+    },
+    {
+      "number": 8,
+      "id": "slate-coral",
+      "name": "石板珊瑚",
+      "canvas": "#CED8DE",
+      "paper": "#EDF1F3",
+      "ink": "#2C3D48",
+      "muted": "#5C6B72",
+      "primary": "#486F84",
+      "secondary": "#D57663",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#486F84",
+        "#D57663",
+        "#8AA69C",
+        "#C5AD77",
+        "#9889A9",
+        "#6A899D",
+        "#AB8577",
+        "#536568"
+      ]
+    },
+    {
+      "number": 9,
+      "id": "mono-vermilion",
+      "name": "黑白朱红",
+      "canvas": "#DAD7D0",
+      "paper": "#F5F3EE",
+      "ink": "#262626",
+      "muted": "#626A69",
+      "primary": "#D64732",
+      "secondary": "#73878B",
+      "grid": "#BABFBA",
+      "categorical": [
+        "#D64732",
+        "#272727",
+        "#74898D",
+        "#B2C0BD",
+        "#D8C7B0",
+        "#766A64",
+        "#939C9A",
+        "#B39489"
+      ]
+    }
+  ]
+}

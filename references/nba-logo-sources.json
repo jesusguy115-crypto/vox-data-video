@@ -1,0 +1,674 @@
+[
+  {
+    "id": "nba-hawks",
+    "name": "老鹰",
+    "team_id": 1610612737,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "efe7639e6daac1a103c13a1c3cc0b2d00979397ab70333e9d8ded492ea250504",
+    "logo_colors": [
+      "#FFFFFF",
+      "#E03A3E"
+    ],
+    "default_black_present": true,
+    "selected_logo_colors": [
+      "#E03A3E"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-celtics",
+    "name": "凯尔特人",
+    "team_id": 1610612738,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "531038092e848f7319e05d1785ef875353d6168c20ce419218503f1cc24cfd4c",
+    "logo_colors": [
+      "#BB9753",
+      "#008348",
+      "#F9A980",
+      "#A73832",
+      "#FFFFFF"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#008348",
+      "#BB9753"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-nets",
+    "name": "篮网",
+    "team_id": 1610612751,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "6a3b134fbf97503b196848f6c933246a87c33ee623f13022c4cf7219a785ab34",
+    "logo_colors": [
+      "#FFFFFF"
+    ],
+    "default_black_present": true,
+    "selected_logo_colors": [
+      "#000000",
+      "#FFFFFF"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-hornets",
+    "name": "黄蜂",
+    "team_id": 1610612766,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "cf2c99a2d619f635920a94b69e20b2efb2babb992d5a821c22b0129e0cc57f46",
+    "logo_colors": [
+      "#1D1160",
+      "#00788C",
+      "#FFFFFF",
+      "#A1A1A4"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#00788C",
+      "#1D1160",
+      "#A1A1A4"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-bulls",
+    "name": "公牛",
+    "team_id": 1610612741,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "a11d0d6480b75e4eebca54130d195a462547705c8c7e6b501a11a62d57854068",
+    "logo_colors": [
+      "#CD1F43",
+      "#FFFFFF"
+    ],
+    "default_black_present": true,
+    "selected_logo_colors": [
+      "#CD1F43",
+      "#000000"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-cavaliers",
+    "name": "骑士",
+    "team_id": 1610612739,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "ef345729b4d9f69863d2f6f20b80bda21191ecf5f49a40a0a4f428d0864a301b",
+    "logo_colors": [
+      "#BC945C",
+      "#860038"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#860038",
+      "#BC945C"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-mavericks",
+    "name": "独行侠",
+    "team_id": 1610612742,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612742/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "1547494512746c1827808f1650407e675025b20b07bb5bd185093ac49630db5c",
+    "logo_colors": [
+      "#FFFFFF",
+      "#061922",
+      "#BBC4CA",
+      "#0064B1"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#0064B1",
+      "#061922",
+      "#BBC4CA"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-nuggets",
+    "name": "掘金",
+    "team_id": 1610612743,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612743/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "4e180a9d1906a726d1eb5d5074ae3468cdf25da5e388a98a112563683b6c8730",
+    "logo_colors": [
+      "#FFC627",
+      "#8B2332",
+      "#0D2240",
+      "#FFFFFF"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#0D2240",
+      "#FFC627",
+      "#8B2332"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-pistons",
+    "name": "活塞",
+    "team_id": 1610612765,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612765/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "efc20345b37e52206e025a0dbe5b57e28d8f4226b1a70573a9792a2e18595e0b",
+    "logo_colors": [
+      "#B3B2B1",
+      "#1D428A",
+      "#C8102E",
+      "#FFFFFF"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#1D428A",
+      "#C8102E",
+      "#B3B2B1"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-warriors",
+    "name": "勇士",
+    "team_id": 1610612744,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "99af50c32a1b1c19ede6286cda294e98cd19263d1d2b50cd4b79b0e868c96a0a",
+    "logo_colors": [
+      "#1D428A",
+      "#FDB927"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#1D428A",
+      "#FDB927"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-rockets",
+    "name": "火箭",
+    "team_id": 1610612745,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "9a0fd3d351f0726db427e8bed6db098bf88d15e98582b4b8dfd5a3638d6263f0",
+    "logo_colors": [
+      "#FFD520",
+      "#CE0E2D"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#CE0E2D",
+      "#FFD520"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-pacers",
+    "name": "步行者",
+    "team_id": 1610612754,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612754/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "07b320f178a5bf9a800e1369289b1af59d777feff21936856b6f8cf9ef66ea8a",
+    "logo_colors": [
+      "#9EA2A2",
+      "#0C2340",
+      "#FFD520"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#0C2340",
+      "#FFD520",
+      "#9EA2A2"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-clippers",
+    "name": "快船",
+    "team_id": 1610612746,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612746/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "6fe94cd7b648afe8a700d2ae7c0a78bec1685adb7374214cbde7251520aa6a5a",
+    "logo_colors": [
+      "#FFFFFF",
+      "#12173F"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#12173F",
+      "#FFFFFF"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-lakers",
+    "name": "湖人",
+    "team_id": 1610612747,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "5b68f7b92ba7d05878ef7130162c77c1e5e7d4c5ac0608c7bb9f13f995a678b7",
+    "logo_colors": [
+      "#FFFFFF",
+      "#FAB624",
+      "#0B1A23",
+      "#542C81"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#542C81",
+      "#FAB624",
+      "#0B1A23"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-grizzlies",
+    "name": "灰熊",
+    "team_id": 1610612763,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612763/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "677c8053201e90471f0eda3fdd8364c7a598bcba72a7a6e61ed26cbc9ecadcaf",
+    "logo_colors": [
+      "#707271",
+      "#12173F",
+      "#5D76A9",
+      "#FFBB22"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#5D76A9",
+      "#12173F",
+      "#FFBB22"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-heat",
+    "name": "热火",
+    "team_id": 1610612748,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612748/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "bb56d6319628bed94e5154d20cef555b20321939e05c37f3af7d9fea486b74b3",
+    "logo_colors": [
+      "#961A31",
+      "#F9A11E",
+      "#FFFFFF"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#961A31",
+      "#F9A11E"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-bucks",
+    "name": "雄鹿",
+    "team_id": 1610612749,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "1a315b6ea7d465c48fc58d42cea16732089422e631d8453e8f2945032d0ff4c5",
+    "logo_colors": [
+      "#EDE0C5",
+      "#00471A",
+      "#FFFFFF"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#00471A",
+      "#EDE0C5"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-timberwolves",
+    "name": "森林狼",
+    "team_id": 1610612750,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612750/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "e23cca4da95fe6a0629cd0a425e5dbefbf410948abf7499718d8fb858df5fa9d",
+    "logo_colors": [
+      "#009A44",
+      "#1D428A",
+      "#C1C6C8"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#1D428A",
+      "#009A44",
+      "#C1C6C8"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-pelicans",
+    "name": "鹈鹕",
+    "team_id": 1610612740,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612740/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "3d74bfcf573428a09814ddae46db420a31dfe5e77faf75b0d7da7b1649ba93b1",
+    "logo_colors": [
+      "#B4975A",
+      "#0A2240",
+      "#FFFFFF",
+      "#CE0E2D"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#0A2240",
+      "#B4975A",
+      "#CE0E2D"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-knicks",
+    "name": "尼克斯",
+    "team_id": 1610612752,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "42e914c5226c3ff71fa09fe018e8604a4abb6a935e1896e5414733d6cd5fcde9",
+    "logo_colors": [
+      "#FFFFFF",
+      "#9EA2A2",
+      "#1D428A",
+      "#F58426"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#1D428A",
+      "#F58426",
+      "#9EA2A2"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-thunder",
+    "name": "雷霆",
+    "team_id": 1610612760,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "fb684464e11e07989b3121108b54f12fafc85631644ad534f3fef53fd9927d89",
+    "logo_colors": [
+      "#057DC1",
+      "#EE3C33",
+      "#FFFFFF",
+      "#F9B82F",
+      "#1E3160"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#057DC1",
+      "#EE3C33",
+      "#F9B82F",
+      "#1E3160"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-magic",
+    "name": "魔术",
+    "team_id": 1610612753,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612753/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "aa38562ae665b4266e21f38698abdd2b45bb5a099e23246973a6bd8b71f056bf",
+    "logo_colors": [
+      "#061922",
+      "#0050B5",
+      "#2155A5"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#0050B5",
+      "#061922",
+      "#2155A5"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-76ers",
+    "name": "76人",
+    "team_id": 1610612755,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "1e3fbaf4f2d48a4e8e3ce38cea06af858f1ac103e24d16cfb64728d39e29780d",
+    "logo_colors": [
+      "#1D428A",
+      "#C8102E"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#1D428A",
+      "#C8102E"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-suns",
+    "name": "太阳",
+    "team_id": 1610612756,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "b4ec319fc4551e87c13bdfbe4eddcaeb38701a2a946fc977887669bbb6bb06e1",
+    "logo_colors": [
+      "#F79E1E",
+      "#E46025",
+      "#B65B27"
+    ],
+    "default_black_present": true,
+    "selected_logo_colors": [
+      "#E46025",
+      "#000000",
+      "#F79E1E",
+      "#B65B27"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-trail-blazers",
+    "name": "开拓者",
+    "team_id": 1610612757,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612757/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "65fbdafe950a7064f5303a1a45942b1519061cf9f56681e304763c81f87ca719",
+    "logo_colors": [
+      "#FFFFFF",
+      "#CF0A2C"
+    ],
+    "default_black_present": true,
+    "selected_logo_colors": [
+      "#CF0A2C",
+      "#000000"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-kings",
+    "name": "国王",
+    "team_id": 1610612758,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "36bcebbe9c06361db15791796bd6fd1ee39dd88047b1ecb7d3a00702617141cf",
+    "logo_colors": [
+      "#FFFFFF",
+      "#63717A",
+      "#592D81"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#592D81",
+      "#63717A"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-spurs",
+    "name": "马刺",
+    "team_id": 1610612759,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612759/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "c4df842e0d660dbc6dd1f8e523b1ca03dd2cfee314624071a6ab8425ab885271",
+    "logo_colors": [
+      "#FFFFFF",
+      "#C2CCD2"
+    ],
+    "default_black_present": true,
+    "selected_logo_colors": [
+      "#000000",
+      "#C2CCD2"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-raptors",
+    "name": "猛龙",
+    "team_id": 1610612761,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612761/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "cb754caf37f8132f366e20d5af618575c314bc7d716253566d11932e4d723883",
+    "logo_colors": [
+      "#BC2126"
+    ],
+    "default_black_present": true,
+    "selected_logo_colors": [
+      "#BC2126",
+      "#000000"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-jazz",
+    "name": "爵士",
+    "team_id": 1610612762,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612762/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "f1df72b502f198c452085fc01dcfcb1f352a93a5fa085cb0314bd0fa1aea1358",
+    "logo_colors": [
+      "#4E008E"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#4E008E"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "nba-wizards",
+    "name": "奇才",
+    "team_id": 1610612764,
+    "source_url": "https://cdn.nba.com/logos/nba/1610612764/primary/L/logo.svg",
+    "checked_at": "2026-10-14",
+    "logo_sha256": "4e99c8f715c1af7e5cce17d507d5a4b21cf83f3c721cbb526f1b8597d58660b4",
+    "logo_colors": [
+      "#FFFFFF",
+      "#C4CDD3",
+      "#002B5C",
+      "#E21936"
+    ],
+    "default_black_present": false,
+    "selected_logo_colors": [
+      "#002B5C",
+      "#E21936",
+      "#C4CDD3"
+    ],
+    "editorial_neutrals": [
+      "#111111",
+      "#FFFFFF"
+    ]
+  }
+]

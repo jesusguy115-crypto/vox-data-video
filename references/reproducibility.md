@@ -1,5 +1,3 @@
-用户新授权优先：跳过代表自主决定时，用 user_delegated 主题；未知指标使用通用名称，不阻塞制作、不捏造单位。明确不要主题才关闭标题。
-
 # 不同 AI 与设备复现
 
 旧版只提供风格说明和绘图原语，代理会自行写场景；同样的数据可以出现不同标题纸条、图例、轴刻度、字形和入场。这不是 Skill 安装就能消除的差异。新版本提供统一模板和渲染入口。
@@ -17,7 +15,7 @@ python scripts/render_video.py --scene examples/two-series-line.json --cache wor
 python scripts/render_video.py --scene examples/two-series-line.json --cache work/video-cache --out outputs/example.mp4 --report work/render.json
 ```
 
-只有缺失依赖时才安装。默认使用随仓库附带的 Noto Sans SC 字体，字号、可变字体字重、标题宽度、纸张种子、轴尺度、系列颜色、动画时间由同一代码和场景决定。不要自行换字体、调整图例位置或替换纸材质。用户明确要求不同版式时才改，记录所改参数。许可证和来源见 assets/fonts/。
+只有缺失依赖时才安装。通用模板使用随仓库附带的 Noto Sans SC（中文标注）、Noto Serif SC（主标题）和 Barlow Condensed Bold（百分比）字体，字号、可变字体字重、标题宽度、纸张种子、轴尺度、系列颜色、动画时间由同一代码和场景决定。不要自行换字体、调整图例位置或替换纸材质。用户明确要求不同版式时才改，记录所改参数。许可证和来源见 assets/fonts/。
 
 `examples/two-series-line.json` 固定吴艳妮/中岛瞳数据、黑白朱红与秒单位；`assets/layout-reference.jpg` 是这一例子的完整帧。其他 AI 可以先运行示例，再比较自己的输出，不把参考图的数据移植到新任务。
 
@@ -30,3 +28,7 @@ python scripts/render_video.py --scene examples/two-series-line.json --cache wor
 没有脚本执行能力、缺字体或缺编码器时，明确说当前不能复现模板，保留场景/预览，不声称已经按统一模板完成，也不悄悄用图片生成或另一套画法替代。
 
 Mac 原生直接编码路径已实测；FFmpeg 路径提供跨系统实现，但本机没有 FFmpeg，尚未在 Linux/Windows 实机运行验证。相同模板和参数旨在保持可见布局与运动一致；不同解码器/编码器和字库底层版本仍可能有轻微像素或压缩差异，不保证 MP4 字节完全一致。
+
+用户认可的原版柱线图使用 render_classic.py＋classic_collage.swift，必须与 Python 简化模板区分。原版是 macOS 系统字形路径；通用角色字体是随包路径，不强行宣称两者一致。新配色菜单用经典纸黄与30支NBA球队 Logo 派生色。普通任务不先渲染示例，只有首次安装验收或用户明确要求复现时才运行示例。
+
+用户认可的原版柱线图使用 render_classic.py＋classic_collage.swift，必须与 Python 简化模板区分。原版是 macOS 系统字形路径；通用角色字体是随包路径，不强行宣称两者一致。新配色菜单用经典纸黄与30支NBA球队 Logo 派生色。普通任务不先渲染示例，只有首次安装验收或用户明确要求复现时才运行示例。

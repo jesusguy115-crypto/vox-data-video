@@ -13,6 +13,11 @@ def load_palette(scheme='classic-paper',palette_file=None):
     if 'palettes' not in data:return data
     for palette in data['palettes']:
         if scheme in (palette['id'],palette['name'],str(palette['number'])):return palette
+    if not palette_file:
+        legacy=source.with_name('legacy-palettes.json')
+        if legacy.exists():
+            for palette in json.loads(legacy.read_text())['palettes']:
+                if scheme in (palette['id'],palette['name']):return palette
     raise ValueError('Unknown palette: '+str(scheme))
 
 def rgb(value):

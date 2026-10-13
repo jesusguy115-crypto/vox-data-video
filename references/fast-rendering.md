@@ -23,7 +23,7 @@ python scripts/render_video.py --scene work/scene.json --cache work/video-cache 
 python scripts/render_video.py --scene work/scene.json --cache work/video-cache --out outputs/data-video.mp4 --report work/render-timing.json
 ```
 
-先检查脚本生成的 entry/middle/final 预览，再渲染。默认使用打包字体。Mac 使用 Swift/AVFoundation；其他系统有 FFmpeg 时使用 rawvideo stdin，保持同一模板画面。，BGRA 帧通过 stdin 直接进入编码器，不写逐帧 PNG；缓存纹理、字体、已完成数据层、最终停留画面和编译后的编码器。本次初次编译额外约 21 秒（首次整段约 25 秒），后续缓存可复用。不要把缓存或二进制提交进 Skill。
+统一脚本一次生成 entry/middle/final 预览并导出，随后核对一次；不默认 preview-only 后再从头执行完整导出。默认使用打包字体。Mac 使用 Swift/AVFoundation；其他系统有 FFmpeg 时使用 rawvideo stdin，保持同一模板画面。，BGRA 帧通过 stdin 直接进入编码器，不写逐帧 PNG；缓存纹理、字体、已完成数据层、最终停留画面和编译后的编码器。本次初次编译额外约 21 秒（首次整段约 25 秒），后续缓存可复用。不要把缓存或二进制提交进 Skill。
 
 用 `--backend png` 可回退到连续 PNG 与原编码器。自动 Swift 编译仅支持 macOS；FFmpeg 跨系统路径尚未在本机实测，不声称所有平台已经测试。
 
@@ -65,3 +65,7 @@ python scripts/render_video.py --scene work/scene.json --cache work/video-cache 
 ## 本机实测口径
 
 同一份 11 年、两系列数据，1920×1080、30fps、14 秒：旧自定义场景 + PNG + 编码约 45.8 秒；预制模板 + 直接编码约 2.6–4.5 秒（编码器已编译，后续版式和字库更新后重复测量）。数值、尺度和视频规格一致，但图层实现和入场细节不同。这是单次本机导出对比，不是跨机器保证，也不是对原先整轮约八分钟聊天耗时的分解。
+
+饼图百分比默认直接放扇区，右侧图例仅色块＋名称；小扇区用近邻引导线。visual_profile=editorial 与 motion_steps_per_second=12 为新入口默认。title_materials 可指定 dark/accent/secondary 两行材料；主标题字体角色见 typography.md。
+
+饼图百分比默认直接放扇区，右侧图例仅色块＋名称；小扇区用近邻引导线。visual_profile=editorial 与 motion_steps_per_second=12 为新入口默认。title_materials 可指定 dark/accent/secondary 两行材料；主标题字体角色见 typography.md。

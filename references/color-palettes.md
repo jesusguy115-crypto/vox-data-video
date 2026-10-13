@@ -1,39 +1,44 @@
-# 配色由用户选择
+# NBA 球队 Logo 配色
 
-Vox 纸张风格不是黄、黑、米色的固定组合。通过撕纸边缘、纹理、剪贴层次、短句大字、纸卡、手绘标记与节拍保持识别，颜色可以有多种专业搭配。
+这套 Skill 主要用于 NBA 内容。可选经典纸黄＋NBA 30 队 Logo 配色，不再将旧九套通用方案作为新任务主菜单。**用户没选择时直接用 classic-paper 经典纸黄**，不根据标题或球员自动套球队。
 
-## 每次新调用
+每次新任务提供一次可选入口，用户可说球队中文名、nba-球队ID，或“默认”。已有本次选择不重复问。配色选择不是审批；未选择用默认继续，用户明确说要选色则等待其实际选择。主题和单位可在同一入口询问。默认不随上一次非默认选择改变。
 
-1. 用户已指定配色、品牌色、自定义色或“默认”时，直接使用并保留本次选择，不重复问。
-2. 用户未指定时，在开始阶段展示 `assets/palette-preview.png`，或用短列表列出方案名字。说明“默认沿用上次的经典纸黄，也可以选下面的方案”；不要把可选配色变成必须回答的审批。
-3. 支持异步提问时，用一个可选问题让用户输入方案名/编号或自定义颜色，并继续分析表格、选图、准备场景。提供合理选择机会后，仍未指定则用默认。未回答不代表同意其他变化，只触发用户已明确授权的默认配色规则。
-4. 用户中途改色就更新 palette_id 和颜色角色，复用数据/图形/动效。用户明确表示希望选色时，应等待实际选择后再渲染最终颜色。
+颜色依据2026-10-14读取的 NBA 官方 CDN 主 Logo；来源、原色和文件哈希在 nba-logo-sources.json。SVG 未声明 fill 的路径使用默认黑色。当前 Logo 颜色可能与历史队徽或球衣色不同，不把记忆中的配色当作已查证结果。基于 Logo 原色派生纸底、墨色和同色明暗层级，不声称这些衍生色都是官方品牌色；单色队伍尤其需要层级和直接标签。NBA 官方球队目录 https://www.nba.com/teams 。只提取颜色，不将 Logo 默认放进用户视频，不暗示球队官方出品。
 
-可以用这一句话提供选择：
-
-“本次默认沿用经典纸黄；也可选择蓝珊瑚、森林橙、梅紫金、深海薄荷、陶土靛蓝、冰蓝电蓝、石板珊瑚或黑白朱红，告诉我名字即可。”
-
-## 方案库
-
-完整颜色角色与分类色在 `palettes.json`。这九套是可复用起点，不禁止定制。
-
-| 编号 | ID | 名称 | 视觉方向 |
+| 球队 | ID | 主色 / 辅色 | 来源 |
 |---|---|---|---|
-| 1 | classic-paper | 经典纸黄（默认） | 上次视频的暖纸、炭黑、黄色与红色标记 |
-| 2 | blue-coral | 蓝珊瑚 | 蓝色主调与暖珊瑚，清晰、有活力 |
-| 3 | forest-orange | 森林橙 | 森林绿与暖橙，自然、沉稳 |
-| 4 | plum-gold | 梅紫金 | 深梅紫与柔金，鲜明、温暖 |
-| 5 | navy-mint | 深海薄荷 | 海军蓝与薄荷，冷静、利落 |
-| 6 | terracotta-indigo | 陶土靛蓝 | 陶土暖色与靛蓝，印刷和拼贴质感 |
-| 7 | ice-cobalt | 冰蓝电蓝 | 冷纸、电蓝与橘色标记，明快 |
-| 8 | slate-coral | 石板珊瑚 | 石板灰蓝与珊瑚，克制的编辑感 |
-| 9 | mono-vermilion | 黑白朱红 | 黑白纸层与朱红重点，强对比 |
+| 老鹰 | `nba-hawks` | #E03A3E / #111111 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg) |
+| 凯尔特人 | `nba-celtics` | #008348 / #BB9753 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg) |
+| 篮网 | `nba-nets` | #000000 / #737373 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg) |
+| 黄蜂 | `nba-hornets` | #00788C / #1D1160 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg) |
+| 公牛 | `nba-bulls` | #CD1F43 / #000000 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg) |
+| 骑士 | `nba-cavaliers` | #860038 / #BC945C | [官方 Logo](https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg) |
+| 独行侠 | `nba-mavericks` | #0064B1 / #061922 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612742/primary/L/logo.svg) |
+| 掘金 | `nba-nuggets` | #0D2240 / #FFC627 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612743/primary/L/logo.svg) |
+| 活塞 | `nba-pistons` | #1D428A / #C8102E | [官方 Logo](https://cdn.nba.com/logos/nba/1610612765/primary/L/logo.svg) |
+| 勇士 | `nba-warriors` | #1D428A / #FDB927 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg) |
+| 火箭 | `nba-rockets` | #CE0E2D / #FFD520 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg) |
+| 步行者 | `nba-pacers` | #0C2340 / #FFD520 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612754/primary/L/logo.svg) |
+| 快船 | `nba-clippers` | #12173F / #7D7F95 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612746/primary/L/logo.svg) |
+| 湖人 | `nba-lakers` | #542C81 / #FAB624 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg) |
+| 灰熊 | `nba-grizzlies` | #5D76A9 / #12173F | [官方 Logo](https://cdn.nba.com/logos/nba/1610612763/primary/L/logo.svg) |
+| 热火 | `nba-heat` | #961A31 / #F9A11E | [官方 Logo](https://cdn.nba.com/logos/nba/1610612748/primary/L/logo.svg) |
+| 雄鹿 | `nba-bucks` | #00471A / #EDE0C5 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg) |
+| 森林狼 | `nba-timberwolves` | #1D428A / #009A44 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612750/primary/L/logo.svg) |
+| 鹈鹕 | `nba-pelicans` | #0A2240 / #B4975A | [官方 Logo](https://cdn.nba.com/logos/nba/1610612740/primary/L/logo.svg) |
+| 尼克斯 | `nba-knicks` | #1D428A / #F58426 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg) |
+| 雷霆 | `nba-thunder` | #057DC1 / #EE3C33 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg) |
+| 魔术 | `nba-magic` | #0050B5 / #061922 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612753/primary/L/logo.svg) |
+| 76人 | `nba-76ers` | #1D428A / #C8102E | [官方 Logo](https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg) |
+| 太阳 | `nba-suns` | #E46025 / #000000 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg) |
+| 开拓者 | `nba-trail-blazers` | #CF0A2C / #000000 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612757/primary/L/logo.svg) |
+| 国王 | `nba-kings` | #592D81 / #63717A | [官方 Logo](https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg) |
+| 马刺 | `nba-spurs` | #000000 / #C2CCD2 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612759/primary/L/logo.svg) |
+| 猛龙 | `nba-raptors` | #BC2126 / #000000 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612761/primary/L/logo.svg) |
+| 爵士 | `nba-jazz` | #4E008E / #9E73C1 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612762/primary/L/logo.svg) |
+| 奇才 | `nba-wizards` | #002B5C / #E21936 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612764/primary/L/logo.svg) |
 
-## 颜色角色与数据语义
+完整角色和分类色在 palettes.json，预览在 assets/palette-preview.png。系列身份全片一致；跨球队数据若要每队自身色，需用户选择该方案，否则沿本次选定主题配色。正负/连续量不使用无序分类色。纸张与跳切风格不随配色改变。
 
-- canvas：最底层；paper：图表纸层；ink：正文/轴/普通数据；muted：辅助文字；primary：标题/重点纸卡；secondary：第二指标/标记；categorical：同一分类维度的多个类别；grid：参考网格。
-- 系列颜色在全视频中一致，不能按帧随机变色。饼图、堆叠图等使用 categorical，不把所有块都染成 primary。层级可用同色族，但标注仍要清楚。
-- 单个重要条/数字用 primary，普通条可用 ink 或协调色；折线等第二指标用 secondary。正负、顺序、发散等数据需专门色阶，不盲目套分类色。
-- 文字颜色根据纸层对比度选择，不默认所有重点色上用白字。颜色与标签/位置共同表达含义。品牌色或用户新方案也需检查关键文字和类别区分。
-- `scripts/make_paper.py --scheme ID` 会按方案生成纸材质和 palette.json，保留同样的撕纸/纹理效果。旧 `yellow.jpg` 是兼容材质槽名，在非黄方案中它也会使用所选 primary，不能理解为必须用黄色。
-- 在 scene.json 保存选择，不让默认覆盖用户在本次任务已经选定的颜色。新任务没有要求时，默认仍是 classic-paper，不自动把上一次非默认选择永久记为新默认。
+legacy-palettes.json 仅保留旧场景复现兼容，不出现在新配色菜单。用户明确复现森林橙等旧片时仍可执行旧 ID；这个兼容例外不把旧方案重新加入 NBA 菜单。

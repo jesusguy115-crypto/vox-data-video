@@ -6,7 +6,7 @@
 python scripts/make_video.py --table input.png --work work/job --out outputs/video.mp4 --palette classic-paper --chart packed_circle
 ```
 
-也可传 `--theme`、`--metric`、`--unit`；没有这些参数不阻塞，标题使用一般数据主题，未知指标标“数值”、单位留空。用户明确要求无主题时用 `--no-theme`。用户指定图形用 `--chart`，禁止因为另一模板更现成就换图。
+也可传 `--theme`、`--metric`、`--unit`；未提供主题默认不加标题；只有本次明确委托自主取标题时使用 --auto-theme。未知指标标“数值”、未知单位留空。用户明确要求无主题时用 `--no-theme`。用户指定图形用 `--chart`，禁止因为另一模板更现成就换图。
 
 自动流程包含读取/OCR、重复列检查、数据关系识别、场景参数生成、关键帧、直接编码及解码验证。目录中的 pipeline.json 记录分段时间，render.json 记录渲染身份。任务用不同 --work，但共享材质、OCR 和编码器缓存；默认复用 Documents/Codex/.vox-video-cache（该目录存在时），其他环境 ~/.cache/vox-data-video；可用 --cache 或 VOX_VIDEO_CACHE 指定。不要每次把缓存放进全新 job 目录重新编译。
 
@@ -17,3 +17,7 @@ python scripts/make_video.py --table input.png --work work/job --out outputs/vid
 常规执行不重新读全套参考、不重新上网研究同一风格。只有不适配的图形或歧义加载相关资料。不要以模板快为理由误选图。未提供名称单位且已授权自主决定时，不重复询问；未可靠识别具体指标则用通用名称，不造经济口径。
 
 实测合成输入，1080p、30fps、14 秒，缓存就绪：截图 OCR→自动选图→场景→预览→编码→解码检查约 4.6 秒；12 对象时间宽表→动态圆堆同流程约 3.1 秒。第一次新缓存编译额外约 21 秒，OCR 首次编译另有开销。以上是自动入口运行时间，不包括会话等待、代理首次加载和人工读图核对；不能保证每张截图或每台机器相同耗时。
+
+普通出片不开发模板、不发布仓库，解码与关键帧通过一次后立即交付。各次询问与跳过授权独立，详见 delivery-speed.md。自动规划默认 editorial＋12fps 分拍，影片30fps，完整字体随包。
+
+普通出片不开发模板、不发布仓库，解码与关键帧通过一次后立即交付。各次询问与跳过授权独立，详见 delivery-speed.md。自动规划默认 editorial＋12fps 分拍，影片30fps，完整字体随包。

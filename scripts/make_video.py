@@ -29,7 +29,7 @@ def read_image(path,cache,scripts):
   (cache/'ocr-unverified.json').write_text(json.dumps({'tokens':tokens,'rows':grid},ensure_ascii=False,indent=2));raise ValueError('OCR cell grid ambiguous; verify cached rows once, never guess missing cells')
  return {'columns':grid[0],'rows':grid[1:],'ocr':True}
 
-def plan(table,chart,theme,palette,metric,unit):
+def plan(table,chart,theme,palette,metric,unit,auto_theme=False):
  columns=table['columns'];rows=table['rows']
  if not rows or any(len(r)!=len(columns) for r in rows):raise ValueError('Nonrectangular or empty table')
  # Deduplicate columns only when header and every cell are identical.
@@ -44,33 +44,34 @@ def plan(table,chart,theme,palette,metric,unit):
  def year(x):
   try:return str(x).strip().isdigit() and 1000<=int(x)<=3000
   except (ValueError,TypeError):return False
- common={'preserve_value_labels':True,'palette_id':palette,'width':1920,'height':1080,'fps':30,'duration':14,'value_precision':2,'theme':{'text':theme,'source':'user' if theme else 'user_delegated'},'highlight':None,'extra_info_cards':False,'production_captions':False}
+ common={'visual_profile':'editorial','motion_steps_per_second':12,'preserve_value_labels':True,'palette_id':palette,'width':1920,'height':1080,'fps':30,'duration':14,'value_precision':2,'theme':{'text':theme,'source':'user' if theme else 'not_provided'},'highlight':None,'extra_info_cards':False,'production_captions':False}
+ def title(fallback):return common['theme'] if theme or not auto_theme else {'text':fallback,'source':'user_delegated'}
  ylabel=(metric or '数值')+(f'（{unit}）' if unit else '')
  if len(columns)>2 and all(year(c) for c in columns[1:]):
   years=list(map(int,columns[1:]));data=[{'name':str(r[0]),'values':{str(y):str(r[j+1]) for j,y in enumerate(years)}} for r in rows]
   for r in data:
    for v in r['values'].values():number(v)
   chosen=chart if chart!='auto' else 'packed_circle' if len(data)>=8 else 'line'
-  if chosen=='packed_circle':return {**common,'chart_type':chosen,'data':data,'years':years,'reveal_seconds':10,'theme':common['theme'] if theme else {'text':'各类历年数值变化','source':'user_delegated'}},'多对象多时期；圆面积编码非负数值，避免密集折线'
+  if chosen=='packed_circle':return {**common,'chart_type':chosen,'data':data,'years':years,'reveal_seconds':10,'theme':title('各类历年数值变化')},'多对象多时期；圆面积编码非负数值，避免密集折线'
   if chosen!='line':raise ValueError('Selected chart incompatible with time-wide table')
   converted={'columns':['年份']+[r['name'] for r in data],'rows':[[y]+[r['values'][str(y)] for r in data] for y in years]}
-  return plan(converted,'line',theme,palette,metric,unit)
+  return plan(converted,'line',theme,palette,metric,unit,auto_theme)
  if len(columns)>=2 and all(year(r[0]) for r in rows):
   if chart not in ('auto','line'):raise ValueError('Chart incompatible with series table')
   data=[{'x':int(r[0]),**{f'v{j}':str(r[j]) for j in range(1,len(columns))}} for r in rows];values=[number(r[j]) for r in rows for j in range(1,len(columns))]
-  return {**common,'chart_type':'line','data':data,'x_axis':{'field':'x','label':str(columns[0])},'y_axis':{**nice_axis(values),'label':ylabel},'series':[{'name':str(columns[j]),'field':f'v{j}'} for j in range(1,len(columns))],'theme':common['theme'] if theme else {'text':'历年数值变化','source':'user_delegated'}},'时间序列共用同一尺度'
+  return {**common,'chart_type':'line','data':data,'x_axis':{'field':'x','label':str(columns[0])},'y_axis':{**nice_axis(values),'label':ylabel},'series':[{'name':str(columns[j]),'field':f'v{j}'} for j in range(1,len(columns))],'theme':title('历年数值变化')},'时间序列共用同一尺度'
  if len(columns)==2:
-  vals=[number(r[1]) for r in rows];shares=('占比' in str(columns[1]) or '%' in str(columns[1]) or '比例' in str(columns[1])) and abs(sum(vals)-100)<.1 and min(vals)>=0
+  vals=[number(r[1]) for r in rows];shares=('占比' in str(columns[1]) or '%' in str(columns[1]) or '比例' in str(columns[1]) or unit=='%') and abs(sum(vals)-100)<.1 and min(vals)>=0
   chosen=chart if chart!='auto' else 'pie' if shares and len(rows)<=8 else 'bar';data=[{'name':str(r[0]),'value':str(r[1]).rstrip('%')} for r in rows]
   if chosen=='pie':
    if not shares:raise ValueError('Pie requires verified whole proportions; use an explicit normalized scene for other whole data')
-   return {**common,'chart_type':'pie','data':data,'category_field':'name','value_field':'value','value_suffix':'%','complete_whole':True,'categories_mutually_exclusive':True,'theme':common['theme'] if theme else {'text':'各类占比分布','source':'user_delegated'}},'完整占比、少量类别'
+   return {**common,'chart_type':'pie','data':data,'category_field':'name','value_field':'value','value_suffix':'%','complete_whole':True,'categories_mutually_exclusive':True,'theme':title('各类占比分布')},'完整占比、少量类别'
   if chosen!='bar':raise ValueError('Chart incompatible with category-value table')
-  return {**common,'chart_type':'bar','data':data,'category_field':'name','value_field':'value','value_axis':{**nice_axis(vals,True),'label':ylabel},'theme':common['theme'] if theme else {'text':'各类数值对比','source':'user_delegated'}},'类别与单指标的大小比较'
+  return {**common,'chart_type':'bar','data':data,'category_field':'name','value_field':'value','value_axis':{**nice_axis(vals,True),'label':ylabel},'theme':title('各类数值对比')},'类别与单指标的大小比较'
  raise ValueError('Complex data needs a verified normalized scene; never silently substitute a chart')
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--table',required=True);ap.add_argument('--out');ap.add_argument('--work',required=True);ap.add_argument('--chart',choices=['auto','line','bar','pie','packed_circle'],default='auto');ap.add_argument('--cache');ap.add_argument('--no-theme',action='store_true');ap.add_argument('--theme');ap.add_argument('--palette',default='classic-paper');ap.add_argument('--metric');ap.add_argument('--unit');ap.add_argument('--preview-only',action='store_true');a=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('--table',required=True);ap.add_argument('--out');ap.add_argument('--work',required=True);ap.add_argument('--chart',choices=['auto','line','bar','pie','packed_circle'],default='auto');ap.add_argument('--cache');ap.add_argument('--no-theme',action='store_true');ap.add_argument('--theme');ap.add_argument('--palette',default='classic-paper');ap.add_argument('--metric');ap.add_argument('--unit');ap.add_argument('--preview-only',action='store_true');ap.add_argument("--auto-theme",action="store_true",help="Only when the user explicitly delegates title selection");a=ap.parse_args()
  started=time.perf_counter();work=Path(a.work).resolve();work.mkdir(parents=True,exist_ok=True);scripts=Path(__file__).resolve().parent;path=Path(a.table);shared=Path(a.cache or os.environ.get('VOX_VIDEO_CACHE',str(Path.home()/'Documents/Codex/.vox-video-cache' if (Path.home()/'Documents/Codex').is_dir() else Path.home()/'.cache/vox-data-video'))).resolve();shared.mkdir(parents=True,exist_ok=True)
  if path.suffix.lower()=='.json':table=json.loads(path.read_text())
  elif path.suffix.lower() in ('.csv','.tsv'):
@@ -93,7 +94,7 @@ def main():
   if any(v is None for row in grid for v in row):raise ValueError('Blank/merged cells require verification')
   table={'columns':grid[0],'rows':grid[1:]}
  else:raise ValueError('Supply JSON/CSV/TSV/XLSX/image')
- read=time.perf_counter();cfg,reason=plan(table,a.chart,a.theme,a.palette,a.metric,a.unit)
+ read=time.perf_counter();cfg,reason=plan(table,a.chart,a.theme,a.palette,a.metric,a.unit,a.auto_theme and not a.no_theme)
  if a.no_theme:cfg['theme']={'text':None,'source':'not_provided'}
  scene=work/'scene.json';scene.write_text(json.dumps(cfg,ensure_ascii=False,indent=2));planned=time.perf_counter()
  cmd=[sys.executable,str(scripts/'render_video.py'),'--scene',str(scene),'--cache',str(shared)]

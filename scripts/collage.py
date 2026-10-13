@@ -49,18 +49,21 @@ class Scene:
         self.image=Image.composite(layer,self.image,mask)
         ImageDraw.Draw(self.image).line(points+[points[0]],fill=(248,245,232,255),width=1)
 
-    def font(self,size,bold=False):
-        key=(int(size),bold)
+    def font(self,size,bold=False,role='body'):
+        key=(int(size),bold,role)
         if key not in self.fonts:
-            f=ImageFont.truetype(self.font_bold if bold else self.font_regular,int(size))
+            folder=Path(self.font_regular).parent
+            filename=folder/('NotoSerifSC.ttf' if role=='headline' else 'BarlowCondensed-Bold.ttf')
+            if role!='body' and not filename.is_file():raise ValueError('Missing bundled role font: '+str(filename))
+            f=ImageFont.truetype(str(filename) if role!='body' else self.font_bold if bold else self.font_regular,int(size))
             try:
-                axes=f.get_variation_axes();values=[(700 if bold else 500) if a['name']==b'Weight' else a['default'] for a in axes];f.set_variation_by_axes(values)
+                axes=f.get_variation_axes();values=[(900 if role=='headline' else 700 if bold else 500) if a['name']==b'Weight' else a['default'] for a in axes];f.set_variation_by_axes(values)
             except OSError:pass
             self.fonts[key]=f
         return self.fonts[key]
 
-    def text(self,value,xy,size=32,fill=None,bold=False,anchor='lt'):
-        d=ImageDraw.Draw(self.image);f=self.font(size,bold)
+    def text(self,value,xy,size=32,fill=None,bold=False,anchor='lt',role='body'):
+        d=ImageDraw.Draw(self.image);f=self.font(size,bold,role)
         fill=fill or self.palette['ink']
         d.text(xy,str(value),font=f,fill=fill,anchor=anchor)
         return d.textbbox(xy,str(value),font=f,anchor=anchor)
