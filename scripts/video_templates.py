@@ -10,7 +10,7 @@ class ChartVideo:
   if self.kind not in ('line','bar','pie','combo'):raise ValueError('Unsupported template: '+self.kind)
   if not self.rows:raise ValueError('No data')
   theme=cfg.get('theme',{})
-  if theme.get('text') and theme.get('source')!='user':raise ValueError('Title must come from user')
+  if theme.get('text') and theme.get('source') not in ('user','user_delegated'):raise ValueError('Title must come from user')
   if cfg.get('highlight') or cfg.get('extra_info_cards') or cfg.get('production_captions'):raise ValueError('Use a custom scene for explicitly requested editorial effects')
   self.has_title=bool(theme.get('text'));self.header_rows=len(cfg.get('title_lines') or [theme.get('text')]) if self.has_title else 0;self.s=Scene(1920,1080,textures,font);self.p=self.s.palette
   self.colors=[x.get('color',self.p['categorical'][i%len(self.p['categorical'])]) for i,x in enumerate(self.series)]
@@ -114,7 +114,7 @@ class ChartVideo:
   for i,row in enumerate(self.rows):
    y=(375 if self.has_title else 255)+i*65;s.rectangle((1180,y,1201,y+21),fill=p['categorical'][i%len(p['categorical'])]);s.text(str(row[cfg['category_field']]),(1225,y-3),30,bold=True)
    s.text(self.value_label(row[field])+cfg.get('value_suffix',''),(1660,y-2),29,anchor='rt')
- def value_label(self,v):return f'{float(v):.{self.cfg.get("value_precision",2)}f}'
+ def value_label(self,v):return str(v) if self.cfg.get('preserve_value_labels') else f'{float(v):.{self.cfg.get("value_precision",2)}f}'
  def _node(self,im,j,i):
   row=self.rows[i];series=self.series[j];x,y=self.positions[j][i];color=self.colors[j];d=ImageDraw.Draw(im)
   if self.kind=='bar':

@@ -5,6 +5,7 @@ import argparse,json,time,hashlib,subprocess,sys,platform,shutil
 import PIL
 from PIL import Image
 from video_templates import ChartVideo
+from packed_circle import PackedVideo
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--scene',required=True);ap.add_argument('--out');ap.add_argument('--cache',required=True);ap.add_argument('--font');ap.add_argument('--encoder');ap.add_argument('--backend',choices=['stream','png'],default='stream');ap.add_argument('--preview-only',action='store_true');ap.add_argument('--report');args=ap.parse_args()
@@ -23,7 +24,7 @@ def main():
   subprocess.run(cmd,check=True,stdout=subprocess.DEVNULL)
  font=Path(args.font).resolve() if args.font else scripts.parent/'assets/fonts/NotoSansSC.ttf'
  if not font.is_file():raise RuntimeError('Missing bundled font; install the complete skill. Do not silently substitute font.')
- scene=ChartVideo(cfg,paper,font)
+ scene=(PackedVideo if cfg['chart_type']=='packed_circle' else ChartVideo)(cfg,paper,font)
  if duration<scene.start+scene.reveal+.5:raise ValueError('Duration must allow complete data reveal and reading hold')
  def frame(t):
   im=scene.frame(t)
@@ -63,7 +64,7 @@ def main():
   folder=cache/('frames-'+hashlib.sha256(str(out).encode()).hexdigest()[:12]);folder.mkdir(exist_ok=True)
   for i in range(count):frame(i/fps).convert('RGB').save(folder/f'frame_{i:06d}.png')
   render_seconds=time.perf_counter()-encoding_started;t0=time.perf_counter();subprocess.run([str(encoder),str(folder),str(out),str(fps)],check=True);encoder_seconds=time.perf_counter()-t0
- finished=time.perf_counter();report={'renderer_version':'2.0','renderer_sha256':hashlib.sha256((scripts/'video_templates.py').read_bytes()+(scripts/'collage.py').read_bytes()+(scripts/'make_paper.py').read_bytes()).hexdigest(),'scene_sha256':hashlib.sha256(Path(args.scene).read_bytes()).hexdigest(),'font_sha256':hashlib.sha256(font.read_bytes()).hexdigest(),'pillow_version':PIL.__version__,'palette_id':scheme,'series_colors':scene.colors,'backend':args.backend,'frames':count,'width':w,'height':h,'fps':fps,'duration':duration,'prepare_seconds':round(prepared-started,3),'compile_seconds':round(compile_seconds,3),'render_seconds':round(render_seconds,3),'render_encode_seconds':round(finished-encoding_started,3),'total_seconds':round(finished-started,3),'temporary_frame_files':0 if args.backend=='stream' else count,'previews':str(previews),'output':str(out)}
+ finished=time.perf_counter();report={'renderer_version':'2.1','renderer_sha256':hashlib.sha256((scripts/'video_templates.py').read_bytes()+(scripts/'collage.py').read_bytes()+(scripts/'make_paper.py').read_bytes()+(scripts/'packed_circle.py').read_bytes()).hexdigest(),'scene_sha256':hashlib.sha256(Path(args.scene).read_bytes()).hexdigest(),'font_sha256':hashlib.sha256(font.read_bytes()).hexdigest(),'pillow_version':PIL.__version__,'palette_id':scheme,'series_colors':scene.colors,'backend':args.backend,'frames':count,'width':w,'height':h,'fps':fps,'duration':duration,'prepare_seconds':round(prepared-started,3),'compile_seconds':round(compile_seconds,3),'render_seconds':round(render_seconds,3),'render_encode_seconds':round(finished-encoding_started,3),'total_seconds':round(finished-started,3),'temporary_frame_files':0 if args.backend=='stream' else count,'previews':str(previews),'output':str(out)}
  if args.report:Path(args.report).write_text(json.dumps(report,ensure_ascii=False,indent=2))
  print(json.dumps(report,ensure_ascii=False))
 if __name__=='__main__':main()

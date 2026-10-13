@@ -54,3 +54,15 @@ python scripts/render_video.py --scene examples/two-series-line.json --cache wor
 直接传帧编码，不写几百张临时 PNG。本机同规格实测：旧流程约 45.8 秒，新流程缓存就绪后约 2.6–4.5 秒；首次编译额外约 21 秒。这只计算导出，不含读表、对话等待与检查。Mac 原生路径已实测；FFmpeg 跨系统路径尚未在 Linux/Windows 实机验证。
 
 字体来自 [Google Fonts 官方 Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc)，遵循附带的 SIL Open Font License 1.1。示例用于验证版式，不能替代新任务的数据。
+
+## 2.1 从输入到成片
+
+新增 make_video.py，统一表格读取/截图 OCR、数据规划、参数生成、预览、编码和解码检查。截图 OCR 仅在 macOS 实测；其他环境可输入 JSON/CSV/XLSX。跨任务共享缓存，避免每张表再次编译约21秒。新增动态圆堆模板；用户指定的图形不替换成横条。
+
+```sh
+python scripts/make_video.py --table input.png --work work/job --out outputs/video.mp4 --palette classic-paper --chart packed_circle
+```
+
+可省略主题、指标和单位，按委托使用通用数据标题，未知单位留空，不臆造具体经济口径；明确不需要标题用 --no-theme。
+
+合成输入实测，缓存就绪，1080p/30fps/14秒：截图从 OCR 到成片约4.6秒，12对象时间宽表到动态圆堆约3.1秒。包含规划和场景，不仅编码；对话等待、代理加载、人工核对与首次编译另计。详细范围见 references/one-pass-workflow.md。
