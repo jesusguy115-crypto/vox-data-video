@@ -1,3 +1,5 @@
+Before rendering, complete the three intake questions in SKILL.md and wait for answers or explicit skip. Defaults do not imply consent to skip. Only then pass --intake-confirmed.
+
 整表单图规则优先：见 [single-chart.md](single-chart.md)。禁止未经用户要求拆为多张图或多个面板。
 
 # 整段制作提速
@@ -5,7 +7,7 @@
 入口是 `scripts/make_video.py`。先理解用户表格及指定图形，常见输入直接执行该入口，不临时重写场景。JSON 是 `{columns:[...],rows:[[...],...]}`；也支持 CSV/TSV、单个可用工作表的 XLSX，以及 macOS 下规整清晰的表格截图。
 
 ```sh
-python scripts/make_video.py --table input.png --work work/job --out outputs/video.mp4 --palette classic-paper --chart packed_circle
+python scripts/make_video.py --intake-confirmed --table input.png --work work/job --out outputs/video.mp4 --palette classic-paper --chart packed_circle
 ```
 
 也可传 `--theme`、`--metric`、`--unit`；未提供主题默认不加标题；只有本次明确委托自主取标题时使用 --auto-theme。未知指标标“数值”、未知单位留空。用户明确要求无主题时用 `--no-theme`。用户指定图形用 `--chart`，禁止因为另一模板更现成就换图。
