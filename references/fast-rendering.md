@@ -1,3 +1,5 @@
+整表单图规则优先：见 [single-chart.md](single-chart.md)。禁止未经用户要求拆为多张图或多个面板。
+
 # 常用图表快速制作
 
 优先使用 one-pass-workflow.md 的 make_video.py，让读表、选图和参数生成也进入统一自动流程。
@@ -69,3 +71,5 @@ python scripts/render_video.py --scene work/scene.json --cache work/video-cache 
 饼图百分比默认直接放扇区，右侧图例仅色块＋名称；小扇区用近邻引导线。visual_profile=editorial 与 motion_steps_per_second=12 为新入口默认。title_materials 可指定 dark/accent/secondary 两行材料；主标题字体角色见 typography.md。
 
 饼图百分比默认直接放扇区，右侧图例仅色块＋名称；小扇区用近邻引导线。visual_profile=editorial 与 motion_steps_per_second=12 为新入口默认。title_materials 可指定 dark/accent/secondary 两行材料；主标题字体角色见 typography.md。
+
+combo 使用 combined_chart.py，按拍生长柱形后描绘折线；scatter 使用 scatter_chart.py，在同一坐标系保留所有名称和两项数值。散点标签放不下时提供 scene.label_offsets（行号字符串→[dx,dy]），不能删除标签或拆面板。

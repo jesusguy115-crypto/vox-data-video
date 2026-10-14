@@ -1,0 +1,82 @@
+{
+  "chart_type": "combo",
+  "visual_profile": "editorial",
+  "motion_steps_per_second": 12,
+  "palette_id": "nba-thunder",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 14,
+  "reveal_seconds": 5,
+  "preserve_value_labels": true,
+  "theme": {
+    "text": null,
+    "source": "not_provided"
+  },
+  "highlight": null,
+  "extra_info_cards": false,
+  "production_captions": false,
+  "data": [
+    {
+      "name": "雷霆",
+      "attempts": "38",
+      "percent": "45"
+    },
+    {
+      "name": "马刺",
+      "attempts": "41",
+      "percent": "32"
+    }
+  ],
+  "x_axis": {
+    "field": "name",
+    "type": "category",
+    "label": ""
+  },
+  "y_axis": {
+    "min": 0,
+    "max": 50,
+    "ticks": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "precision": 0,
+    "label": "三分出手（次）"
+  },
+  "right_axis": {
+    "min": 0,
+    "max": 50,
+    "ticks": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "precision": 0,
+    "suffix": "%",
+    "label": "三分命中率"
+  },
+  "series": [
+    {
+      "role": "bar",
+      "field": "attempts",
+      "name": "三分出手",
+      "color": "#057DC1",
+      "material": "accent"
+    },
+    {
+      "role": "line",
+      "field": "percent",
+      "name": "三分命中率",
+      "color": "#EE3C33",
+      "show_values": true,
+      "value_suffix": "%"
+    }
+  ]
+}

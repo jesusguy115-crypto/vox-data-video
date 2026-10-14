@@ -1,3 +1,5 @@
+整表单图规则优先：见 [single-chart.md](single-chart.md)。禁止未经用户要求拆为多张图或多个面板。
+
 # 整段制作提速
 
 入口是 `scripts/make_video.py`。先理解用户表格及指定图形，常见输入直接执行该入口，不临时重写场景。JSON 是 `{columns:[...],rows:[[...],...]}`；也支持 CSV/TSV、单个可用工作表的 XLSX，以及 macOS 下规整清晰的表格截图。
@@ -21,3 +23,5 @@ python scripts/make_video.py --table input.png --work work/job --out outputs/vid
 普通出片不开发模板、不发布仓库，解码与关键帧通过一次后立即交付。各次询问与跳过授权独立，详见 delivery-speed.md。自动规划默认 editorial＋12fps 分拍，影片30fps，完整字体随包。
 
 普通出片不开发模板、不发布仓库，解码与关键帧通过一次后立即交付。各次询问与跳过授权独立，详见 delivery-speed.md。自动规划默认 editorial＋12fps 分拍，影片30fps，完整字体随包。
+
+入口现支持 --chart combo / scatter。三列类别表保留两项指标：第二数值列带%时默认柱线组合，其他双连续数值默认散点。无法支持的字段结构明确报错，不删列或拆图。

@@ -38,7 +38,8 @@ class ChartVideo:
   return self.left+(i+.5)/len(self.rows)*(self.right-self.left)
  def _prepare(self):
   s,p=self.s,self.p
-  s.begin();s.paper((1875,-80,130,1240),'dark',seed=84,amplitude=16);s.paper((-50,930,690,220),'accent',seed=53,amplitude=16);self.bg=s.image.copy()
+  team=p.get('id','').startswith('nba-')
+  s.begin();s.paper((1875,-80,130,1240),'accent' if team else 'dark',seed=84,amplitude=16);s.paper((-50,930,690,220),'accent',seed=53,amplitude=16);self.bg=s.image.copy()
   self.title_layers=[]
   if self.has_title:
    lines=self.cfg.get('title_lines') or [self.cfg['theme']['text']]
@@ -54,7 +55,7 @@ class ChartVideo:
     box=((1920-width)//2 if len(lines)==1 else 92,65,width,110) if i==0 else (101,191,width,73)
     if self.editorial:
      box=(92,35,width,88) if i==0 and len(lines)>1 else (92,140 if i else 45,min(1690,max(width,1080)),136)
-    material=self.cfg.get('title_materials',['dark','accent'])[i]
+    material=self.cfg.get('title_materials',[p.get('title_material','secondary') if team else 'dark','accent'])[i]
     base=p['ink'] if material=='dark' else p['secondary'] if material=='secondary' else p['primary']
     lum=sum(v*k for v,k in zip(ImageColor.getrgb(base),(.2126,.7152,.0722)));title_fill=p['ink'] if lum>155 else p['paper']
     s.paper(box,material,seed=2+i*2,amplitude=11);s.text(line,(box[0]+30,box[1]+10),size,fill=title_fill,bold=True,role=role);self.title_layers.append(s.image.copy())
@@ -106,7 +107,7 @@ class ChartVideo:
   if axis['min']!=0:raise ValueError('Bar axis must start at zero')
   self.left,self.right=480,1590
   self.bar_height=min(44,(self.bottom-self.top)/len(self.rows)*.6)
-  self.colors=[self.p['ink']];positions=[]
+  self.colors=[self.p['primary'] if self.p.get('id','').startswith('nba-') else self.p['ink']];positions=[]
   for i,row in enumerate(self.rows):
    v=float(row[cfg['value_field']])
    if not math.isfinite(v) or not 0<=v<=axis['max']:raise ValueError('Invalid bar value')
@@ -143,10 +144,18 @@ class ChartVideo:
     while f.getlength(text)>2*radius*.65*math.sin(math.radians(span/2))*.9 and f.size>32:f=s.font(f.size-1,True,'number')
    self.pie_labels.append((b,text,(x,y),f,fill,leader))
  def value_label(self,v):return str(v) if self.cfg.get('preserve_value_labels') else f'{float(v):.{self.cfg.get("value_precision",2)}f}'
+ def draw_bar(self,im,x,y):
+  width=max(0,int(x-self.left));height=max(1,int(self.bar_height))
+  if not width:return
+  key=('horizontal',width,height)
+  if key not in self.bar_tiles:
+   material='accent' if self.p.get('id','').startswith('nba-') else 'dark'
+   self.bar_tiles[key]=self.s.textures[material].resize((width,height),Image.Resampling.BILINEAR)
+  im.alpha_composite(self.bar_tiles[key],(int(self.left),int(y-self.bar_height/2)))
  def _node(self,im,j,i):
   row=self.rows[i];series=self.series[j];x,y=self.positions[j][i];color=self.colors[j];d=ImageDraw.Draw(im)
   if self.kind=='bar':
-   d.rectangle((self.left,y-self.bar_height/2,x,y+self.bar_height/2),fill=color)
+   self.draw_bar(im,x,y)
    d.text((x+16,y),self.value_label(row[series['field']])+self.cfg.get('value_suffix',''),font=self.s.font(27,True),fill=color,anchor='lm')
    return
   if series.get('role')=='bar':
@@ -198,7 +207,7 @@ class ChartVideo:
     if index+1<total and (self.kind=='line' or series.get('role')=='line'):
      a,b=self.positions[j][index:index+2];d.line([a,(a[0]+(b[0]-a[0])*part,a[1]+(b[1]-a[1])*part)],fill=self.colors[j],width=6)
   else:
-   pos=progress*total;index=min(total-1,int(pos));part=[0,.12,.32,.58,.82,1][min(5,int((pos-index)*6))];page=self.stage(index).copy();x,y=self.positions[0][index];d=ImageDraw.Draw(page);d.rectangle((self.left,y-self.bar_height/2,self.left+(x-self.left)*part,y+self.bar_height/2),fill=self.colors[0])
+   pos=progress*total;index=min(total-1,int(pos));part=[0,.12,.32,.58,.82,1][min(5,int((pos-index)*6))];page=self.stage(index).copy();x,y=self.positions[0][index];self.draw_bar(page,self.left+(x-self.left)*part,y)
   return self._compose(page,t)
  def _pie_frame(self,progress,t=100):
   page=self.chart.copy();d=ImageDraw.Draw(page);end=-90+360*progress

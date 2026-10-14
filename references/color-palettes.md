@@ -9,7 +9,7 @@
 | 球队 | ID | 主色 / 辅色 | 来源 |
 |---|---|---|---|
 | 老鹰 | `nba-hawks` | #E03A3E / #111111 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg) |
-| 凯尔特人 | `nba-celtics` | #008348 / #BB9753 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg) |
+| 凯尔特人 | `nba-celtics` | #008348 / #FFFFFF | [官方 Logo](https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg) |
 | 篮网 | `nba-nets` | #000000 / #737373 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg) |
 | 黄蜂 | `nba-hornets` | #00788C / #1D1160 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg) |
 | 公牛 | `nba-bulls` | #CD1F43 / #000000 | [官方 Logo](https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg) |
@@ -42,3 +42,7 @@
 完整角色和分类色在 palettes.json，预览在 assets/palette-preview.png。系列身份全片一致；跨球队数据若要每队自身色，需用户选择该方案，否则沿本次选定主题配色。正负/连续量不使用无序分类色。纸张与跳切风格不随配色改变。
 
 legacy-palettes.json 仅保留旧场景复现兼容，不出现在新配色菜单。用户明确复现森林橙等旧片时仍可执行旧 ID；这个兼容例外不把旧方案重新加入 NBA 菜单。
+
+## 球队色必须在主体中可见
+
+主色用于主要条形、折线或其他数据主体；辅色用于标题、第二指标或纸层，不能把二者都压缩成胶带装饰。墨色只负责文字、坐标等辅助部分。76人用官方蓝 #1D428A 与红 #C8102E，白纸；凯尔特人用绿 #008348 与白 #FFFFFF，Logo中的金色只作次要可选点缀。纸纹保留轻微色差，不能将绿色压暗成近黑。

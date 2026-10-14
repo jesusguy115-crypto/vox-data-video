@@ -60,6 +60,20 @@ def plan(table,chart,theme,palette,metric,unit,auto_theme=False):
   if chart not in ('auto','line'):raise ValueError('Chart incompatible with series table')
   data=[{'x':int(r[0]),**{f'v{j}':str(r[j]) for j in range(1,len(columns))}} for r in rows];values=[number(r[j]) for r in rows for j in range(1,len(columns))]
   return {**common,'chart_type':'line','data':data,'x_axis':{'field':'x','label':str(columns[0])},'y_axis':{**nice_axis(values),'label':ylabel},'series':[{'name':str(columns[j]),'field':f'v{j}'} for j in range(1,len(columns))],'theme':title('历年数值变化')},'时间序列共用同一尺度'
+ if len(columns)==3:
+  vals=[[number(r[j]) for r in rows] for j in (1,2)]
+  percent=[all(str(r[j]).strip().endswith('%') for r in rows) or '%' in str(columns[j]) for j in (1,2)]
+  chosen=chart if chart!='auto' else 'combo' if percent.count(True)==1 and not any(percent[:1]) else 'scatter'
+  data=[{'name':str(r[0]),'v1':str(r[1]).strip().rstrip('%'),'v2':str(r[2]).strip().rstrip('%')} for r in rows]
+  axes=[{**nice_axis(v,chosen=='combo'),'field':f'v{j+1}','label':str(columns[j+1]),'value_suffix':'%' if percent[j] else ''} for j,v in enumerate(vals)]
+  if chosen=='combo':
+   if min(vals[0])<0:raise ValueError('Negative bars require an explicit signed axis; retain both metrics in one chart')
+   from make_paper import load_palette
+   colors=load_palette(palette)
+   if percent[1]:axes[1]['suffix']='%'
+   return {**common,'chart_type':'combo','data':data,'x_axis':{'field':'name','type':'category','label':''},'y_axis':axes[0],'right_axis':axes[1],'series':[{'role':'bar','field':'v1','name':str(columns[1]),'color':colors['primary'],'material':'accent'},{'role':'line','field':'v2','name':str(columns[2]),'color':colors['secondary'],'value_suffix':'%' if percent[1] else '', 'show_values':True}],'theme':title('双指标对比')},'整表单图：两项指标叠加，共用类别轴，各自标明尺度'
+  if chosen=='scatter':return {**common,'chart_type':'scatter','data':data,'category_field':'name','x_axis':axes[0],'y_axis':axes[1],'theme':title('双指标关系')},'整表单图：两个数值编码为横纵位置，保留对象名称'
+  raise ValueError('Three-column table must retain both metrics in one combo/scatter scene; do not split or drop a column')
  if len(columns)==2:
   vals=[number(r[1]) for r in rows];shares=('占比' in str(columns[1]) or '%' in str(columns[1]) or '比例' in str(columns[1]) or unit=='%') and abs(sum(vals)-100)<.1 and min(vals)>=0
   chosen=chart if chart!='auto' else 'pie' if shares and len(rows)<=8 else 'bar';data=[{'name':str(r[0]),'value':str(r[1]).rstrip('%')} for r in rows]
@@ -71,7 +85,7 @@ def plan(table,chart,theme,palette,metric,unit,auto_theme=False):
  raise ValueError('Complex data needs a verified normalized scene; never silently substitute a chart')
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--table',required=True);ap.add_argument('--out');ap.add_argument('--work',required=True);ap.add_argument('--chart',choices=['auto','line','bar','pie','packed_circle'],default='auto');ap.add_argument('--cache');ap.add_argument('--no-theme',action='store_true');ap.add_argument('--theme');ap.add_argument('--palette',default='classic-paper');ap.add_argument('--metric');ap.add_argument('--unit');ap.add_argument('--preview-only',action='store_true');ap.add_argument("--auto-theme",action="store_true",help="Only when the user explicitly delegates title selection");a=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('--table',required=True);ap.add_argument('--out');ap.add_argument('--work',required=True);ap.add_argument('--chart',choices=['auto','line','bar','pie','packed_circle','combo','scatter'],default='auto');ap.add_argument('--cache');ap.add_argument('--no-theme',action='store_true');ap.add_argument('--theme');ap.add_argument('--palette',default='classic-paper');ap.add_argument('--metric');ap.add_argument('--unit');ap.add_argument('--preview-only',action='store_true');ap.add_argument("--auto-theme",action="store_true",help="Only when the user explicitly delegates title selection");a=ap.parse_args()
  started=time.perf_counter();work=Path(a.work).resolve();work.mkdir(parents=True,exist_ok=True);scripts=Path(__file__).resolve().parent;path=Path(a.table);shared=Path(a.cache or os.environ.get('VOX_VIDEO_CACHE',str(Path.home()/'Documents/Codex/.vox-video-cache' if (Path.home()/'Documents/Codex').is_dir() else Path.home()/'.cache/vox-data-video'))).resolve();shared.mkdir(parents=True,exist_ok=True)
  if path.suffix.lower()=='.json':table=json.loads(path.read_text())
  elif path.suffix.lower() in ('.csv','.tsv'):
